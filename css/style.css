@@ -1,0 +1,58 @@
+.main-wrapper {
+    height: 100vh;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.section {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-color: black;
+}
+
+h1, h2, h3, h4{
+    color: white;
+}
+
+p{
+    color: white;
+}
+
+footer {
+    color: white;
+}
+
+nav-link{
+    color: white;
+}
+
+.pc {
+    color: #9B59B6;
+}
+
+.pback {
+    background-color: #9B59B6;
+    border-color: #9B59B6;
+    color: white;
+}
+
+.white {
+    color:white;
+}
+
+a {
+    color:#9B59B6;
+}
+
+a :hover{
+    color: #704083;
+}

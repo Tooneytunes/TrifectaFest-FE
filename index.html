@@ -1,12 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+        integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
+        crossorigin="anonymous"></script>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="javascript/countdown.js"></script>
+    <link rel="icon" type="image/x-icon" href="/images/favicon_package/favicon-32x32.png">
     <title>TrifectaFest</title>
 </head>
+
 <body>
-    <p>Welkom bij ozne site</p>
+    <header class="p-3 text-bg-dark">
+        <div class="container" id="home">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <img class="bi me-2" width="40" height="40" role="img" aria-label="home" src="images/logo64x64.png"
+                        style="margin-right: 20px;">
+                </a>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-right mb-md-0">
+                    <li>
+                        <h1 href="#" class="title mb-lg-0" style="font-size: 20px;">Trifectafest</h1>
+                    </li>
+                </ul>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="index" class="nav-link px-2 pc"> Home</a></li>
+                    <li><a href="lineup" class="nav-link px-2 text-secondary">Line-Up</a></li>
+                    <li><a href="festivals" class="nav-link px-2 text-secondary">Festivals</a></li>
+                    <li><a href="news" class="nav-link px-2 text-secondary">News</a></li>
+                    <li><a href="info" class="nav-link px-2 text-secondary">Info</a></li>
+                </ul>
+
+                <form class="col-12 col-lg-auto mb-1 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control form-control-dark"
+                        placeholder="Search..." aria-label="Search">
+                </form>
+
+                <div class="text-end">
+                    <button type="button" class="btn btn-outline-light me-2">Login</button>
+                    <button type="button" class="btn btn-warning pback">Tickets</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid p-0 m-0" id="quotes">
+        <div class="row">
+            <div class="col-12"></div>
+            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <!-- <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button> -->
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="images/festivalbanner.png" class="img-fluid">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>TRIFECTAFEST</h1>
+                                <p>Hoofddorp (NL) <br /> 7,8, & 9 Juli</p><br />
+                                <p><a class="btn btn-lg btn-outline-light" href="#">Login</a>&nbsp;&nbsp;&nbsp;<a
+                                        class="btn btn-lg btn-primary pback" href="#">Tickets</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid p-0 m-0" id="quotes">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+                    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                        <div class="my-3 py-3">
+                            <h2 class="display-5"><b>VRIJ</b></h2>
+                        </div>
+                    </div>
+                    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                        <div class="my-3 p-3">
+                            <h2 class="display-5"><b>ZAT</b></h2>
+                        </div>
+
+                    </div>
+                    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                        <div class="my-3 p-3">
+                            <h2 class="display-5"><b>ZON</b></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid p-0 m-0" id="quotes">
+        <div class="row">
+            <div class="col-12 pback">
+                <div class="d-md-flex flex-md-equal">
+                    <div class="text-bg-dark me-md-0 pt-50 px-50 text-center overflow-hidden">
+                        <div class="my-0 py-0">
+                            <h2 class="display-5"><b>TRIFESTAFEST - TRIFESTAFEST - TRIFESTAFEST - TRIFESTAFEST - TRIFESTAFEST</b></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid p-0 m-0" id="quotes">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+                    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                        <div class="my-3 py-3">
+                            <h2 class="display-5">NEWS</h2>
+                            <p class="lead">Next upcoming artists & festivals near you</p>
+                        </div>
+                    </div>
+                    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                        <div class="my-3 p-3">
+                            <h2 class="display-5">TICKET INFO</h2>
+                            <p class="lead">Where & how to buy tickets</p>
+                        </div>
+
+                    </div>
+                    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                        <div class="my-3 p-3">
+                            <h2 class="display-5">FOR BANDS</h2>
+                            <p class="lead">Submit an application</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container px-4 py-5" id="countdown" style="color:white">
+        <h1 class="pb-2 border-bottom text-center">COUNTDOWN</h1>
+
+        <div class="row row-cols-1 row-cols-lg-1 p-0 m-0">
+            <div class="col text-center">
+                <div>
+                    <centre>
+                        <h3 id="demo" style="font-size: 40px;"></h3>
+                    </centre>
+                    <p>Before Trifectafest launches!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid p-0 m-0" id="quotes">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+                    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                        <div class="my-3 py-3">
+                            <h2 class="display-5">deToon</h2>
+                            <h6>Producer / DJ</h6>
+                        </div>
+                    </div>
+                    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                        <div class="my-3 p-3">
+                            <h2 class="display-5">Irene</h2>
+                            <h6>Solo violin</h6>
+                        </div>
+
+                    </div>
+                    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                        <div class="my-3 p-3">
+                            <h2 class="display-5">Jelle</h2>
+                            <h6>Gamemusic & Atmospheric</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5" id="techniques">
+        <h2 class="pb-2 border-bottom">Techniques</h2>
+        <h4>All techniques using bootstrap on this page</h4>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h3 class="fw-bold fs-4"> Example Projects</h3>
+                    <p>From Bootstrap > Example projects. We imported quite some features.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h3 class="fw-bold fs-4">Features</h3>
+                    <p>This techniques list is a part of features @bootstrap.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h3 class="fw-bold fs-4">Nav-bar</h3>
+                    <p>At the top of the page you have a nav-bar @bootstrap.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h3 class="fw-bold fs-4">About us</h3>
+                    <p>This feature is from the product-list @bootstrap.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h3 class="fw-bold fs-4">Carousel</h3>
+                    <p>The image carousel is from the carousel @bootstrap. The svg block has been replaced with
+                        images.
+                    </p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h3 class="fw-bold fs-4">Heroes</h3>
+                    <p>This block was imported from the heroes @bootstrap.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h3 class="fw-bold fs-4">Reponsive block</h3>
+                    <p>The responsive block is imported from the heroes @bootstrap.</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h3 class="fw-bold fs-4">Footer</h3>
+                    <p>The footer is imported from the footer @bootstrap.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="p-0 my-0">
+
+    <div class="container col-xl-10 col-xxl-8" id="contact">
+        <div class="row align-items-center g-lg-5 py-5">
+            <div class="col-lg-7 text-center text-lg-start">
+                <h1 class="display-4 fw-bold lh-1 mb-3">Want to receive news?</h1>
+                <p>Are you interested in staying up-to-date with the latest events and happenings in your neighborhood?
+                    If so, we've got great news for you! We are excited to announce our upcoming festival, which
+                    promises to be a fantastic celebration of local culture, music, and food.
+
+                    To ensure you never miss a beat, we are offering a mailing list that will provide you with regular
+                    updates about the festival and related events. By leaving your name and email on our webpage, you'll
+                    be added to our list and will receive notifications about everything that's going on in your
+                    community.
+
+                    Whether you're a long-time resident or new to the area, this mailing list is the perfect way to keep
+                    informed and stay connected with your neighbors. So what are you waiting for? Sign up now and get
+                    ready to experience all the excitement and fun that our festival has to offer!.</p>
+            </div>
+            <div class="col-md-10 mx-auto col-lg-5">
+                <form class="p-4 p-md-5 border rounded-3 bg-light">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="John Doe">
+                        <label for="floatingInput">Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="floatingPassword"
+                            placeholder="name@example.com">
+                        <label for="floatingPassword">Email</label>
+                    </div>
+                    <button class="w-100 btn btn-lg btn-primary pback" type="submit">Sign up</button>
+                    <hr class="my-4">
+                    <small class="text-muted">By clicking "Sign up", you agree to the terms of use.</small>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <hr />>
+
+    <div class="container">
+        <footer class="py-5">
+            <div class="row">
+                <div class="col-6 col-md-2 mb-3">
+                    <h5>Menu</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 pc">Home</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">Lineup</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">News</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">Info</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-2 mb-3">
+                    <h5>Sitemap</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">Festivals</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">Artists</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">Lineup</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">FAQs</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-3 mb-4">
+                    <h5>Meta</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">Login</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">Register</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">Terms & Conditions</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-secondary">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 offset-md-1 mb-3">
+                    <form>
+                        <h5>Subscribe to our newsletter</h5>
+                        <p>Monthly "What's new and exciting"</p>
+                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                            <label for="newsletter1" class="visually-hidden">Email address</label>
+                            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                            <button class="btn btn-primary pback" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column flex-sm-row border-top align-items-center ">
+                <img class="bi me-5" width="30" height="30" role="img" aria-label="home" src="images/logo64x64.png">
+                <p class="my-4">&nbsp;&nbsp;  &copy; TrifestaFest. All rights reserved. - design by <a href="https://de-toon.com/"
+                        target="_blank">deToon</a> with <a href="https://getbootstrap.com/"
+                        target="_blank">Bootstrap</a></p>
+                <ul class="list-unstyled d-flex">
+                    <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
+                                <use xlink:href="#twitter" />
+                            </svg></a></li>
+                    <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
+                                <use xlink:href="#instagram" />
+                            </svg></a></li>
+                    <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
+                                <use xlink:href="#facebook" />
+                            </svg></a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
