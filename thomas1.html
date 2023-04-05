@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function opNaarDeBackend() {
+            console.log("hoi");
+            fetch("http://localhost:8080/thomas1")
+                .then(qq => qq.text())
+                .then(aa => console.log(aa))
+        }
+
+        function nieweFunctie() {
+            var a = document.getElementById("ghi").value;
+            // console.log(a)
+            fetch("http://localhost:8080/thomas2/" + a)
+                .then(qq => qq.text())
+                .then(aa => verwerkAntwoord(aa))
+        }
+
+        function verwerkAntwoord(antwoord) {
+            document.getElementById("printNaam").innerHTML = antwoord;
+        }
+
+    </script>
+</head>
+
+<body>
+    <input id="ghi">
+    <input type="button" value="klik op mij" onclick="nieweFunctie()">
+    <input type="button" value="klik hier" onclick="opNaarDeBackend()">
+    <div id="printNaam"></div>
+</body>
+
+</html>
