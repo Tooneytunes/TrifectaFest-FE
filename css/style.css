@@ -64,7 +64,7 @@ a :hover {
 .rotate-1deg {
     transform: rotate(-1deg);
     transform-origin: top left;
-    margin-top: -15px;
+    margin-top: -15px; 
     margin-bottom: -50px;
 }
 
