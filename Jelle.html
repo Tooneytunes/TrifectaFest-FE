@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function jeffBesos(){
+            fetch("http://localhost:8080/jelle1").then(qq => qq.text().then( aa => console.log(aa)))
+        }
+
+        function Shrek(){
+            var a = document.getElementById("inputfield").value;
+            console.log(a);
+            fetch("http://localhost:8080/jelle2/"+a)
+            .then(qq => qq.text()
+            .then( aa => verwerkAntwoord(aa)))
+        }
+        function verwerkAntwoord(antwoord){
+            document.getElementById("leukediv").innerText = antwoord;
+        }
+    
+    </script>
+</head>
+
+<body>
+    <input type="button" value="klik op mij" onclick="jeffBesos()" />
+    <input id="inputfield" />
+    <input type="button" value="klik op mij2" onclick="Shrek()" />
+
+    <div id="leukediv">
+        goi
+    </div>
+</body>
+</html>
