@@ -13,7 +13,9 @@
         crossorigin="anonymous"></script>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <title>Onze groep</title>
+    <script src="javascript/countdown.js"></script>
+    <link rel="icon" type="image/x-icon" href="/images/favicon_package/favicon-32x32.png">
+    <title>TrifectaFest</title>
 </head>
 
 <body>
@@ -26,25 +28,27 @@
                 </a>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-right mb-md-0">
                     <li>
-                        <h1 href="#" class="title">Trifectafest</h1>
+                        <h1 href="index.html" class="title mb-lg-0" style="font-size: 20px;">Trifectafest</h1>
                     </li>
                 </ul>
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-right mb-md-0">
-
-                    <li><a href="#home" class="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="#home" class="nav-link px-2 text-white">Line-Up</a></li>
-                    <li><a href="#home" class="nav-link px-2 text-white">News</a></li>
-                    <li><a href="#home" class="nav-link px-2 text-white">Info</a></li>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="index.html" class="nav-link px-2 pc"> Home</a></li>
+                    <li><a href="lineup.html" class="nav-link px-2 text-secondary">Line-Up</a></li>
+                    <li><a href="festivals.html" class="nav-link px-2 text-secondary">Festivals</a></li>
+                    <li><a href="news.html" class="nav-link px-2 text-secondary">News</a></li>
+                    <li><a href="info.html" class="nav-link px-2 text-secondary">Info</a></li>
                 </ul>
 
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                    <input type="search" style="color: white" class="form-control form-control-dark text-bg-dark"
-                        placeholder="Search..." aria-label="Search">
+                <form class="col-12 col-lg-auto mb-1 mb-lg-0 me-lg-3" role="search">
+                    <input type="search" class="form-control form-control-dark" placeholder="Search..."
+                        aria-label="Search">
                 </form>
 
                 <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    <button type="button" class="btn btn-warning">Tickets</button>
+                    <button type="button" class="btn btn-outline-light me-2"
+                        onclick="window.location.href='login.html'">Login</button>
+                    <button type="button" class="btn btn-warning pback"
+                        onclick="window.location.href='tickets.html'">Tickets</button>
                 </div>
             </div>
         </div>
@@ -70,8 +74,9 @@
                             <div class="carousel-caption">
                                 <h1>TRIFECTAFEST</h1>
                                 <p>Hoofddorp (NL) <br /> 7,8, & 9 Juli</p><br />
-                                <p><a class="btn btn-lg btn-outline-light" href="#">Login</a>&nbsp;&nbsp;&nbsp;<a
-                                        class="btn btn-lg btn-primary" href="#">Tickets</a></p>
+                                <p><a class="btn btn-lg btn-outline-light"
+                                        href="login.html">Login</a>&nbsp;&nbsp;&nbsp;<a
+                                        class="btn btn-lg btn-primary pback" href="tickets.html">Tickets</a></p>
                             </div>
                         </div>
                     </div>
@@ -80,28 +85,56 @@
             </div>
         </div>
     </div>
-    
+
     <div class="container-fluid p-0 m-0" id="quotes">
         <div class="row">
             <div class="col-12">
                 <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-                    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                        <div class="my-3 py-3">
-                            <h2 class="display-5">Another headline</h2>
-                            <p class="lead">And an even wittier subheading.</p>
+                    <a href="lineup#vrij">
+                        <div class="position-relative d-flex justify-content-center align-items-center me-md-3 pt-4 pb-4 px-3 pt-md-5 px-md-5 overflow-hidden"
+                            style="background-image: url('images/act1.png'); background-size: cover;">
+                            <div class="text-center mt-5 mb-5">
+                                <h2 class="display-5 text-white mt-5"><b>VRIJ</b></h2>
+                                <br /><br />
+                            </div>
                         </div>
-                    </div>
-                    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                        <div class="my-3 p-3">
-                            <h2 class="display-5">Another headline</h2>
-                            <p class="lead">And an even wittier subheading.</p>
+                    </a>
+                    <a href="lineup#zat">
+                        <div class="position-relative d-flex justify-content-center align-items-center me-md-3 pt-4 pb-4 px-3 pt-md-5 px-md-5 overflow-hidden"
+                            style="background-image: url('images/act2.png'); background-size: cover;">
+                            <div class="text-center mt-5 mb-5">
+                                <h2 class="display-5 text-white mt-5"><b>ZAT</b></h2>
+                                <br /><br />
+                            </div>
                         </div>
+                    </a>
+                    <a href="lineup#zon">
+                        <div class="position-relative d-flex justify-content-center align-items-center me-md-3 pt-4 pb-4 px-3 pt-md-5 px-md-5 overflow-hidden"
+                            style="background-image: url('images/act3.png'); background-size: cover;">
+                            <div class="text-center mt-5 mb-5">
+                                <h2 class="display-5 text-white mt-5"><b>ZON</b></h2>
+                                <br /><br />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    </div>
-                    <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                        <div class="my-3 p-3">
-                            <h2 class="display-5">Another headline</h2>
-                            <p class="lead">And an even wittier subheading.</p>
+
+
+
+    <div class="container-fluid p-0 m-0" id="quotes" >
+        <div class="rotate-1deg" >
+            <div class="row" >
+                <div class="col-12 ">
+                    <div class="d-md-flex flex-md-equal">
+                        <div class="text-bg-dark animated me-md-0 pt-50 px-50 text-center overflow-hidden">
+                            <div class="my-0 py-0" style="background-color: #9B59B6;">
+                                <h2 class="display-5"><b><span class="scroll-text">TRIFESTAFEST - TRIFESTAFEST -
+                                            TRIFESTAFEST - TRIFESTAFEST - TRIFESTAFEST</span></b></h2>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -109,38 +142,109 @@
         </div>
     </div>
 
-    <div class="container px-4 py-5" id="techniques">
+    <div class="container-fluid p-0 m-0" id="quotes">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+                    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                        <div class="my-3 py-3">
+                            <h2 class="display-5">NEWS</h2>
+                            <p class="lead">Next upcoming artists & festivals near you</p>
+                        </div>
+                    </div>
+                    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                        <div class="my-3 p-3">
+                            <h2 class="display-5">TICKET INFO</h2>
+                            <p class="lead">Where & how to buy tickets</p>
+                        </div>
+
+                    </div>
+                    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                        <div class="my-3 p-3">
+                            <h2 class="display-5">FOR BANDS</h2>
+                            <p class="lead">Submit an application</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container px-4 py-5" id="countdown" style="color:white">
+        <h1 class="pb-2 border-bottom text-center">COUNTDOWN</h1>
+
+        <div class="row row-cols-1 row-cols-lg-1 p-0 m-0">
+            <div class="col text-center">
+                <div>
+                    <centre>
+                        <h3 id="demo" style="font-size: 40px;"></h3>
+                    </centre>
+                    <p>Before Trifectafest launches!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid p-0 m-0" id="quotes">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+                    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                        <div class="my-3 py-3">
+                            <h2 class="display-5">deToon</h2>
+                            <h6>Producer / DJ</h6>
+                        </div>
+                    </div>
+                    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                        <div class="my-3 p-3">
+                            <h2 class="display-5">Irene</h2>
+                            <h6>Solo violin</h6>
+                        </div>
+
+                    </div>
+                    <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+                        <div class="my-3 p-3">
+                            <h2 class="display-5">Jelle</h2>
+                            <h6>Gamemusic & Atmospheric</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-5" id="techniques">
         <h2 class="pb-2 border-bottom">Techniques</h2>
         <h4>All techniques using bootstrap on this page</h4>
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
             <div class="col d-flex align-items-start">
                 <div>
-                    <h3 class="fw-bold mb-0 fs-4"> Example Projects</h3>
+                    <h3 class="fw-bold fs-4"> Example Projects</h3>
                     <p>From Bootstrap > Example projects. We imported quite some features.</p>
                 </div>
             </div>
             <div class="col d-flex align-items-start">
                 <div>
-                    <h3 class="fw-bold mb-0 fs-4">Features</h3>
+                    <h3 class="fw-bold fs-4">Features</h3>
                     <p>This techniques list is a part of features @bootstrap.</p>
                 </div>
             </div>
             <div class="col d-flex align-items-start">
                 <div>
-                    <h3 class="fw-bold mb-0 fs-4">Nav-bar</h3>
+                    <h3 class="fw-bold fs-4">Nav-bar</h3>
                     <p>At the top of the page you have a nav-bar @bootstrap.</p>
                 </div>
             </div>
             <div class="col d-flex align-items-start">
                 <div>
-                    <h3 class="fw-bold mb-0 fs-4">About us</h3>
+                    <h3 class="fw-bold fs-4">About us</h3>
                     <p>This feature is from the product-list @bootstrap.</p>
                 </div>
             </div>
             <div class="col d-flex align-items-start">
                 <div>
-                    <h3 class="fw-bold mb-0 fs-4">Carousel</h3>
+                    <h3 class="fw-bold fs-4">Carousel</h3>
                     <p>The image carousel is from the carousel @bootstrap. The svg block has been replaced with
                         images.
                     </p>
@@ -148,79 +252,63 @@
             </div>
             <div class="col d-flex align-items-start">
                 <div>
-                    <h3 class="fw-bold mb-0 fs-4">Heroes</h3>
+                    <h3 class="fw-bold fs-4">Heroes</h3>
                     <p>This block was imported from the heroes @bootstrap.</p>
                 </div>
             </div>
             <div class="col d-flex align-items-start">
                 <div>
-                    <h3 class="fw-bold mb-0 fs-4">Reponsive block</h3>
+                    <h3 class="fw-bold fs-4">Reponsive block</h3>
                     <p>The responsive block is imported from the heroes @bootstrap.</p>
                 </div>
             </div>
             <div class="col d-flex align-items-start">
                 <div>
-                    <h3 class="fw-bold mb-0 fs-4">Footer</h3>
+                    <h3 class="fw-bold fs-4">Footer</h3>
                     <p>The footer is imported from the footer @bootstrap.</p>
                 </div>
             </div>
         </div>
     </div>
-    <hr>
-    <div class="container col-xl-10 col-xxl-8 px-4 py-5" id="contact">
+
+    <hr class="p-0 my-0">
+
+    <div class="container col-xl-10 col-xxl-8" id="contact">
         <div class="row align-items-center g-lg-5 py-5">
             <div class="col-lg-7 text-center text-lg-start">
-                <h1 class="display-4 fw-bold lh-1 mb-3">Geef ons je gegevens</h1>
-                <p class="col-lg-10 fs-4">Dan kunnen we je af en toe foto's van lepels versturen. En wellicht af
-                    en
-                    toe een afbeelding van Alakazam, gevangen in Azkaban afkomstig van de Aztecs. Pasta zelf
-                    maken
-                    is zoveel lekkerder dan het kant en klaar kopen. Koffiemachines zijn overrated.</p>
+                <h1 class="display-4 fw-bold lh-1 mb-3">Want to receive news?</h1>
+                <p>Are you interested in staying up-to-date with the latest events and happenings in your neighborhood?
+                    If so, we've got great news for you! We are excited to announce our upcoming festival, which
+                    promises to be a fantastic celebration of local culture, music, and food.
+
+                    To ensure you never miss a beat, we are offering a mailing list that will provide you with regular
+                    updates about the festival and related events. By leaving your name and email on our webpage, you'll
+                    be added to our list and will receive notifications about everything that's going on in your
+                    community.
+
+                    Whether you're a long-time resident or new to the area, this mailing list is the perfect way to keep
+                    informed and stay connected with your neighbors. So what are you waiting for? Sign up now and get
+                    ready to experience all the excitement and fun that our festival has to offer!.</p>
             </div>
             <div class="col-md-10 mx-auto col-lg-5">
                 <form class="p-4 p-md-5 border rounded-3 bg-light">
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Email address</label>
+                        <input type="email" class="form-control" id="floatingInput" placeholder="John Doe">
+                        <label for="floatingInput">Name</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                        <label for="floatingPassword">Password</label>
+                        <input type="password" class="form-control" id="floatingPassword"
+                            placeholder="name@example.com">
+                        <label for="floatingPassword">Email</label>
                     </div>
-                    <div class="checkbox mb-3">
-                        <label>
-                            <input type="checkbox" value="remember-me"> Remember me
-                        </label>
-                    </div>
-                    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+                    <button class="w-100 btn btn-lg btn-primary pback" type="submit">Sign up</button>
                     <hr class="my-4">
-                    <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+                    <small class="text-muted">By clicking "Sign up", you agree to the terms of use.</small>
                 </form>
             </div>
         </div>
     </div>
     <hr>
-    <div class="container col-xxl-8 px-4 py-5">
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <div class="col-10 col-sm-8 col-lg-6">
-                <img src="images/bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
-                    width="700" height="500" loading="lazy">
-            </div>
-            <div class="col-lg-6">
-                <h1 class="display-5 fw-bold lh-1 mb-3">Responsive block with two columns</h1>
-                <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap,
-                    the
-                    world’s
-                    most popular front-end open source toolkit, featuring Sass variables and mixins,
-                    responsive grid
-                    system, extensive prebuilt components, and powerful JavaScript plugins.</p>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <hr />>
 
@@ -228,60 +316,63 @@
         <footer class="py-5">
             <div class="row">
                 <div class="col-6 col-md-2 mb-3">
-                    <h5>Section</h5>
+                    <h5>Menu</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a>
+                        <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0 pc">Home</a></li>
+                        <li class="nav-item mb-2"><a href="lineup.html" class="nav-link p-0 text-secondary">Lineup</a>
                         </li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a>
-                        </li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                        <li class="nav-item mb-2"><a href="news.html" class="nav-link p-0 text-secondary">News</a></li>
+                        <li class="nav-item mb-2"><a href="info.html" class="nav-link p-0 text-secondary">Info</a></li>
+
                     </ul>
                 </div>
 
                 <div class="col-6 col-md-2 mb-3">
-                    <h5>Section</h5>
+                    <h5>Sitemap</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a>
+                        <li class="nav-item mb-2"><a href="festivals.html"
+                                class="nav-link p-0 text-secondary">Festivals</a></li>
+                        <li class="nav-item mb-2"><a href="artists.html" class="nav-link p-0 text-secondary">Artists</a>
                         </li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a>
+                        <li class="nav-item mb-2"><a href="lineup.html" class="nav-link p-0 text-secondary">Lineup</a>
                         </li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                        <li class="nav-item mb-2"><a href="faqs.html" class="nav-link p-0 text-secondary">FAQs</a></li>
+                        <li class="nav-item mb-2"><a href="contact.html" class="nav-link p-0 text-secondary">Contact
+                                Us</a></li>
                     </ul>
                 </div>
 
-                <div class="col-6 col-md-2 mb-3">
-                    <h5>Section</h5>
+                <div class="col-6 col-md-3 mb-4">
+                    <h5>Meta</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a>
+                        <li class="nav-item mb-2"><a href="login.html" class="nav-link p-0 text-secondary">Login</a>
                         </li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a>
-                        </li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                        <li class="nav-item mb-2"><a href="register.html"
+                                class="nav-link p-0 text-secondary">Register</a></li>
+                        <li class="nav-item mb-2"><a href="termsconditions.html"
+                                class="nav-link p-0 text-secondary">Terms & Conditions</a></li>
+                        <li class="nav-item mb-2"><a href="privacypolicy.html"
+                                class="nav-link p-0 text-secondary">Privacy Policy</a></li>
                     </ul>
                 </div>
 
-                <div class="col-md-5 offset-md-1 mb-3">
+                <div class="col-md-4 offset-md-1 mb-3">
                     <form>
                         <h5>Subscribe to our newsletter</h5>
-                        <p>Monthly digest of what's new and exciting from us.</p>
+                        <p>Monthly "What's new and exciting"</p>
                         <div class="d-flex flex-column flex-sm-row w-100 gap-2">
                             <label for="newsletter1" class="visually-hidden">Email address</label>
                             <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                            <button class="btn btn-primary" type="button">Subscribe</button>
+                            <button class="btn btn-primary pback" type="button">Subscribe</button>
                         </div>
                     </form>
                 </div>
             </div>
 
-            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-                <p>&copy; We are super cool. All rights reserved. - Design by <a href="https://de-toon.com/"
-                        target="_blank">deToon</a> with <a href="https://getbootstrap.com/"
+            <div class="d-flex flex-column flex-sm-row border-top align-items-center ">
+                <img class="bi me-5" width="30" height="30" role="img" aria-label="home" src="images/logo64x64.png">
+                <p class="my-4">&nbsp;&nbsp; &copy; TrifestaFest. All rights reserved. - design by <a
+                        href="https://de-toon.com/" target="_blank">deToon</a> with <a href="https://getbootstrap.com/"
                         target="_blank">Bootstrap</a></p>
                 <ul class="list-unstyled d-flex">
                     <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
