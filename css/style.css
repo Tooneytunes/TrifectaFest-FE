@@ -1,0 +1,112 @@
+.main-wrapper {
+    height: 100vh;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.section {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-color: black;
+}
+
+h1, h2, h3, h4 {
+    color: white;
+}
+
+h1, h2, h3, h4 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+footer {
+    color: white;
+}
+
+nav-link {
+    color: white;
+}
+
+.pc {
+    color: #9B59B6;
+}
+
+.white {
+
+    color: white;
+}
+
+a {
+    color: #9B59B6;
+}
+
+a :hover {
+    color: #704083;
+}
+
+.position-relative:hover {
+    filter: grayscale(50%);
+}
+
+.rotate-1deg {
+    transform: rotate(-1deg);
+    transform-origin: top left;
+    margin-top: -15px;
+    margin-bottom: -50px;
+}
+
+.pback {
+    overflow: hidden;
+    background-color: #9B59B6;
+    border-color: #9B59B6;
+    color: white;
+}
+
+.animated h2 {
+    white-space: nowrap;
+    overflow: hidden;
+    animation: marquee 10s linear infinite;
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translateX(-100%);
+    }
+  
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+.scroll-text {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
