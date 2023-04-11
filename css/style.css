@@ -23,12 +23,11 @@ h1, h2, h3, h4 {
     color: white;
 }
 
-p {
-h1, h2, h3, h4{
+h1, h2, h3, h4 {
     color: white;
 }
 
-p{
+p {
     color: white;
 }
 
@@ -36,19 +35,12 @@ footer {
     color: white;
 }
 
-
-nav-link{
+nav-link {
     color: white;
 }
 
 .pc {
     color: #9B59B6;
-}
-
-.pback {
-    background-color: #9B59B6;
-    border-color: #9B59B6;
-    color: white;
 }
 
 .white {
@@ -71,34 +63,37 @@ a :hover {
 .rotate-1deg {
     transform: rotate(-1deg);
     transform-origin: top left;
-    margin-top: -15px; 
+    margin-top: -15px;
     margin-bottom: -50px;
 }
 
 .pback {
     overflow: hidden;
-  }
-  
-  .animated h2 {
+    background-color: #9B59B6;
+    border-color: #9B59B6;
+    color: white;
+}
+
+.animated h2 {
     white-space: nowrap;
     overflow: hidden;
-    animation: scroll marquee 10s linear infinite;
+    animation: marquee 10s linear infinite;
   }
   
   @keyframes marquee {
     0% {
-      transform: translateX(0%);
+      transform: translateX(-100%);
     }
   
     100% {
-      transform: translateX(0%);
+      transform: translateX(100%);
     }
   }
 
 .scroll-text {
     display: inline-block;
     white-space: nowrap;
-    animation: scroll 15s linear infinite;
+    animation: scroll 10s linear infinite;
 }
 
 @keyframes scroll {
@@ -109,13 +104,9 @@ a :hover {
     100% {
         transform: translateX(100%);
     }
-    color:white;
 }
 
-a {
-    color:#9B59B6;
-}
-
-a :hover{
-    color: #704083;
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
