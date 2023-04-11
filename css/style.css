@@ -24,6 +24,11 @@ h1, h2, h3, h4 {
 }
 
 p {
+h1, h2, h3, h4{
+    color: white;
+}
+
+p{
     color: white;
 }
 
@@ -31,7 +36,8 @@ footer {
     color: white;
 }
 
-nav-link {
+
+nav-link{
     color: white;
 }
 
@@ -46,6 +52,7 @@ nav-link {
 }
 
 .white {
+
     color: white;
 }
 
@@ -102,4 +109,13 @@ a :hover {
     100% {
         transform: translateX(100%);
     }
+    color:white;
+}
+
+a {
+    color:#9B59B6;
+}
+
+a :hover{
+    color: #704083;
 }
