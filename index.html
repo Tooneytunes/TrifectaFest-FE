@@ -16,10 +16,29 @@
     <script src="javascript/countdown.js"></script>
     <link rel="icon" type="image/x-icon" href="/images/favicon_package/favicon-32x32.png">
     <title>TrifectaFest</title>
+    <script>
+        function CheckUser(){
+            if(localStorage.getItem("Person") === null)
+            {
+            }
+            else
+            {
+                var person = JSON.parse(localStorage.getItem("Person"));
+                console.log(person.name);
+                document.getElementById("username").innerHTML = `
+                <div class="text-primary px-2">${person.name}</div>
+                <div class="text-secondary px-2">${person.role}</div>
+                `;
+                loginbtn = document.getElementById("loginbtn");
+                loginbtn.onclick = function(){localStorage.removeItem("Person"); window.location.reload(); };
+                loginbtn.innerHTML = "Logout";
+            }
+        }
+    </script>
 </head>
 
-<body>
-    <header class="p-3 text-bg-dark">
+<body onload="CheckUser()">
+    <header class="p-3 text-bg-dark" >
         <div class="container" id="home">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -46,11 +65,14 @@
                 </form>
 
                 <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2"
+                    <button type="button" class="btn btn-outline-light me-2" id="loginbtn"
                         onclick="window.location.href='login.html'">Login</button>
                     <button type="button" class="btn btn-warning pback"
                         onclick="window.location.href='tickets.html'">Tickets</button>
                         </div>
+                <div class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-right mb-md-0", id="username">
+                    <div class="text-primary px-2">Unknown</div>
+                </div>
 
             </div>
         </div>

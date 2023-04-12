@@ -11,9 +11,32 @@
             crossorigin="anonymous"></script>
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-        <script src="javascript/countdown.js"></script>
-        <link rel="icon" type="image/x-icon" href="/images/favicon_package/favicon-32x32.png">
+        <link rel="icon" type="image/x-icon" href="\images\favicon_package\favicon-32x32.png">
         <title>Login - TrifectaFest</title>
+        <script>
+            function userLogin(){
+                //checkCookie();
+                var email = document.getElementById("floatingInput").value;
+                var password = document.getElementById("floatingPassword").value;
+                var userData = {};
+                userData.email = email;
+                userData.password = password;
+                var data = JSON.stringify(userData); //dikke vette encoder >>>> onleesbaar
+                fetch("http://localhost:8080/api/login/user", {
+                headers: {
+                    "Content-type": "application/json",
+                },
+                method: "POST",
+                body: data,
+                }).then(r => r.text())
+                .then( aa => {
+                    console.log(aa);
+                    localStorage.setItem("Person", aa);
+                    window.location.href = "index.html";
+                });
+            }
+            
+        </script>
     </head>
 <body>
     <header class="p-3 text-bg-dark">
@@ -70,7 +93,7 @@
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
-      <button class="w-100 btn btn-lg" type="submit" style="background-color:#9B59B6;">Login</button>
+      <button class="w-100 btn btn-lg" type="button" style="background-color:#9B59B6;" onclick="userLogin()">Login</button>
       <p></p>>
         
     </form>
