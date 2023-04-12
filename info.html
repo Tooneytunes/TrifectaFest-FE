@@ -47,11 +47,11 @@
                     </li>
                 </ul>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="index.html" class="nav-link px-2 pc"> Home</a></li>
+                    <li><a href="index.html" class="nav-link px-2 text-secondary"> Home</a></li>
                     <li><a href="lineup.html" class="nav-link px-2 text-secondary">Line-Up</a></li>
                     <li><a href="festivals.html" class="nav-link px-2 text-secondary">Festivals</a></li>
                     <li><a href="news.html" class="nav-link px-2 text-secondary">News</a></li>
-                    <li><a href="info.html" class="nav-link px-2 text-secondary">Info</a></li>
+                    <li><a href="info.html" class="nav-link px-2 pc">Info</a></li>
                 </ul>
 
                 <form class="col-12 col-lg-auto mb-1 mb-lg-0 me-lg-3" role="search">
@@ -119,8 +119,6 @@
             </div>
         </div>
     </div>
-
-    
 
     <div class="container">
         <footer class="py-5">
@@ -193,9 +191,7 @@
     
                 data.forEach(item => {
                     var row = document.createElement('tr');
-    
 
-    
                     var nameCell = document.createElement('td');
                     nameCell.textContent = item.name;
                     row.appendChild(nameCell);
