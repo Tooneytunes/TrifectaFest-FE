@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function getArtist() {
+        fetch("http://localhost:8080/api/artist/get/1")
+          .then((r) => r.json())
+          .then((data) => toonArtists(data));
+      }
+      function toonArtists(artiesten) {
+        for (var x = 0; x < artiesten.length; x++)
+          document.getElementById("resultaat").innerHTML += artiesten[x].name;
+      }
+      function newFestival() {
+        var festival = {};
+        festival.name = document.getElementById("name").value;
+        festival.beginDate = document.getElementById("beginDate").value;
+        festival.endDate = document.getElementById("endDate").value;
+        festival.location = document.getElementById("location").value;
+        console.log(festival);
+        var oId = document.getElementById("organizerId").value;
+        var data = JSON.stringify(festival);
+        fetch("http://localhost:8080/api/organizer/newfestival/" + oId, {
+          headers: {
+            "Content-type": "application/json",
+          },
+          method: "POST",
+          body: data,
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="Klik pliz" onclick="getArtist()" />
+    <div id="resultaat">hoi</div>
+
+    <hr />
+    <hr />
+    <input type="button" value="klik op mij" onclick="newFestival()" />
+    <p>naam</p>
+    <input id="name" />
+    <p>begin datum</p>
+    <input id="beginDate" type="datetime-local" />
+    <p>eind datum</p>
+    <input id="endDate" type="datetime-local" />
+    <p>Locatie</p>
+    <input id="location">
+    <p>Organisator Id</p>
+    <input id="organizerId" />
+  </body>
+</html>
