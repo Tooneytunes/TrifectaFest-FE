@@ -16,6 +16,42 @@
 
     <link rel="icon" type="image/x-icon" href="/images/favicon_package/favicon-32x32.png">
     <title>Login - TrifectaFest</title>
+
+    <script>
+        function createNewPerson() {
+            var person = {};
+            person.name = document.getElementById("name").value;
+            person.email = document.getElementById("email").value;
+
+            // Check if passwords are the same (uitgebreidere validatie)
+            if (document.getElementById("password").value == document.getElementById("repeatPassword").value) {
+                person.password = document.getElementById("password").value;
+            } else {
+                alert("password and repeat password do not match");
+            }
+
+            // Check which box is checked
+            var form = document.getElementById("newForm");
+            for (var i = 0; i < form.elements["checkbox"].length; i++) {
+                if (form.elements["checkbox"][i].checked) {
+                    console.log(form.elements["checkbox"][i].value);
+                    person.role = form.elements["checkbox"][i].value;
+                }
+            }
+            console.log(person);
+
+            var data = JSON.stringify(person);
+            fetch("http://localhost:8080/api/customer/new", {
+                headers: {
+                    "Content-type": "application/json",
+                },
+                method: "POST",
+                body: data,
+            });
+
+        }
+    </script>
+
 </head>
 
 <body>
@@ -56,41 +92,48 @@
     <div class="text-center">
 
         <main class="form-signin w-100 m-auto">
-            <form>
+            <form id="newForm">
                 <img class="mb-4" src="images/favicon_package/android-chrome-192x192.png" alt="" width="100"
                     height="100 " style="margin-top: 20px;border-radius: 150px;">
                 <h1 class="h3 mb-3 fw-bold text-white">Register new account</h1>
                 <div class="form-floating" style="margin-top: 40px;">
-                    <input type="name" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input type="name" class="form-control" id="name" placeholder="name@example.com">
                     <label for="floatingInput">Name</label>
                 </div>
                 <br />
                 <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
                     <label for="floatingInput">Email address</label>
                 </div>
 
                 <br />
                 <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input type="password" class="form-control" id="password" placeholder="name@example.com">
                     <label for="floatingInput">Password</label>
                 </div>
                 <br />
                 <div class="form-floating">
-                    <input type="passwordrepeat" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input type="passwordrepeat" class="form-control" id="repeatPassword" placeholder="Password">
                     <label for="floatingPassword">Repeat password</label>
                 </div>
                 <br />
-                <div class="checkbox text-lg-start text-white">
-                    <label for="floatingInput"><b>Select a role:</b></label><br/>
-                <input type="checkbox" class="checkoption" value="1" onclick="checkedOnClick(this);"> Costumer <br>
-                <input type="checkbox" class="checkoption" value="2" onclick="checkedOnClick(this);"> Artist <br>
-                <input type="checkbox" class="checkoption" value="3" onclick="checkedOnClick(this);"> Organizer <br>
-                <input type="checkbox" class="checkoption" value="4" onclick="checkedOnClick(this);"> Administrator <br>
-                <br/>
+                <div class="checkbox text-lg-start text-white" id="role">
+                    <label for="floatingInput"><b>Select a role:</b></label><br />
+                    <input type="checkbox" class="checkoption" id="checkbox" value="Customer"
+                        onclick="checkedOnClick(this);">
+                    Costumer <br>
+                    <input type="checkbox" class="checkoption" id="checkbox" value="Artist"
+                        onclick="checkedOnClick(this);">
+                    Artist
+                    <br>
+                    <input type="checkbox" class="checkoption" id="checkbox" value="Organizer"
+                        onclick="checkedOnClick(this);">
+                    Organizer <br>
+                    <br />
 
-            </div>
-                <button class="w-100 btn btn-lg" type="submit" style="background-color:#9B59B6;">Make account</button>
+                </div>
+                <button class="w-100 btn btn-lg" type="button" onclick="createNewPerson()"
+                    style="background-color:#9B59B6;">Make account</button>
             </form>
         </main>
     </div>
