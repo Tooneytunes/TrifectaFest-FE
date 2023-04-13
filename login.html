@@ -15,7 +15,6 @@
         <title>Login - TrifectaFest</title>
         <script>
             function userLogin(){
-                //checkCookie();
                 var email = document.getElementById("floatingInput").value;
                 var password = document.getElementById("floatingPassword").value;
                 var userData = {};
@@ -30,9 +29,11 @@
                 body: data,
                 }).then(r => r.text())
                 .then( aa => {
-                    console.log(aa);
-                    localStorage.setItem("Person", aa);
-                    window.location.href = "index.html";
+                    if(aa)
+                    {
+                        localStorage.setItem("Person", aa);
+                        window.location.href = "index.html";
+                    }
                 });
             }
             
@@ -93,7 +94,7 @@
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
-      <button class="w-100 btn btn-lg" type="button" style="background-color:#9B59B6;" onclick="userLogin()">Login</button>
+      <button class="w-100 btn btn-lg" type="submit" style="background-color:#9B59B6;" onclick="userLogin()">Login</button>
       <p></p>>
         
     </form>
