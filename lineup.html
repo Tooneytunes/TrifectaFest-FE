@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
-        integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
-        crossorigin="anonymous"></script>
-    <script src="javascript/checkbox.js"></script>
-
-    <link rel="icon" type="image/x-icon" href="/images/favicon_package/favicon-32x32.png">
-    <title>Register - TrifectaFest</title>
-</head>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+            integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
+            crossorigin="anonymous"></script>
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="/images/favicon_package/favicon-32x32.png">
+        <title>Line-Up - TrifectaFest</title>
+    </head>
 <body>
     <header class="p-3 text-bg-dark">
         <div class="container" id="home">
@@ -28,12 +24,13 @@
                 </a>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-right mb-md-0">
                     <li>
+
                         <h1 href="index.html" class="title mb-lg-0" style="font-size: 20px;">Trifectafest</h1>
                     </li>
                 </ul>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="index.html" class="nav-link px-2 text-secondary"> Home</a></li>
-                    <li><a href="lineup.html" class="nav-link px-2 text-secondary">Line-Up</a></li>
+                    <li><a href="lineup.html" class="nav-link px-2 pc">Line-Up</a></li>
                     <li><a href="festivals.html" class="nav-link px-2 text-secondary">Festivals</a></li>
                     <li><a href="news.html" class="nav-link px-2 text-secondary">News</a></li>
                     <li><a href="info.html" class="nav-link px-2 text-secondary">Info</a></li>
@@ -49,52 +46,24 @@
                         onclick="window.location.href='login.html'">Login</button>
                     <button type="button" class="btn btn-warning pback"
                         onclick="window.location.href='tickets.html'">Tickets</button>
-                </div>
+                        </div>
+
             </div>
         </div>
     </header>
-    <div class="text-center">
 
-        <main class="form-signin w-100 m-auto">
-            <form>
-                <img class="mb-4" src="images/favicon_package/android-chrome-192x192.png" alt="" width="100"
-                    height="100 " style="margin-top: 20px;border-radius: 150px;">
-                <h1 class="h3 mb-3 fw-bold text-white">Register new account</h1>
-                <div class="form-floating" style="margin-top: 40px;">
-                    <input type="name" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Name</label>
-                </div>
-                <br />
-                <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email address</label>
-                </div>
+    <div class="container px-4 py-5" id="" style="color:white">
+        <h1 class="pb-2 border-bottom text-center">Title here</h1>
 
-                <br />
-                <div class="form-floating">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Password</label>
+        <div class="row row-cols-1 row-cols-lg-1 p-0 m-0">
+            <div class="col text-center">
+                <div>
+                    <p>Place your content here</p>
                 </div>
-                <br />
-                <div class="form-floating">
-                    <input type="passwordrepeat" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Repeat password</label>
-                </div>
-                <br />
-                <div class="checkbox text-lg-start text-white">
-                    <label for="floatingInput"><b>Select a role:</b></label><br />
-                    <input type="checkbox" class="checkoption" value="1" onclick="checkedOnClick(this);"> Costumer <br>
-                    <input type="checkbox" class="checkoption" value="2" onclick="checkedOnClick(this);"> Artist <br>
-                    <input type="checkbox" class="checkoption" value="3" onclick="checkedOnClick(this);"> Organizer <br>
-                    <input type="checkbox" class="checkoption" value="4" onclick="checkedOnClick(this);"> Administrator
-                    <br>
-                    <br />
-
-                </div>
-                <button class="w-100 btn btn-lg" type="submit" style="background-color:#9B59B6;">Make account</button>
-            </form>
-        </main>
+            </div>
+        </div>
     </div>
+
     <div class="container">
         <footer class="py-5">
             <div class="row">
@@ -102,7 +71,7 @@
                     <h5>Menu</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0 text-secondary">Home</a></li>
-                        <li class="nav-item mb-2"><a href="lineup.html" class="nav-link p-0 text-secondary">Lineup</a></li>
+                        <li class="nav-item mb-2"><a href="lineup.html" class="nav-link p-0 pc">Lineup</a></li>
                         <li class="nav-item mb-2"><a href="festivals.html" class="nav-link p-0 text-secondary">Festivals</a></li>
                         <li class="nav-item mb-2"><a href="news.html" class="nav-link p-0 text-secondary">News</a></li>
                         <li class="nav-item mb-2"><a href="info.html" class="nav-link p-0 text-secondary">Info</a></li>
@@ -113,14 +82,14 @@
                 <div class="col-6 col-md-2 mb-3">
                     <h5>Functions</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="makefestival.html" class="nav-link p-0 text-secondary">Festival +</a></li>
-                        <li class="nav-item mb-2"><a href="makeperson.html" class="nav-link p-0 text-secondary">Person +</a></li>
-                        <li class="nav-item mb-2"><a href="maketicket.html" class="nav-link p-0 text-secondary">Ticket +</a></li>
-                        <li class="nav-item mb-2"><a href="makebookingrequest.html" class="nav-link p-0 text-secondary">Booking +</a></li>
                         <li class="nav-item mb-2"><a href="artists.html" class="nav-link p-0 text-secondary">All Artists</a></li>
                         <li class="nav-item mb-2"><a href="allfestivals.html" class="nav-link p-0 text-secondary">All Festivals</a></li>
                         <li class="nav-item mb-2"><a href="bookings.html" class="nav-link p-0 text-secondary">All Bookings</a></li>
                         <li class="nav-item mb-2"><a href="tickets.html" class="nav-link p-0 text-secondary">All Tickets</a></li>
+                        <li class="nav-item mb-2"><a href="makefestival.html" class="nav-link p-0 text-secondary">Festival +</a></li>
+                        <li class="nav-item mb-2"><a href="makeperson.html" class="nav-link p-0 text-secondary">Person +</a></li>
+                        <li class="nav-item mb-2"><a href="maketicket.html" class="nav-link p-0 text-secondary">Ticket +</a></li>
+                        <li class="nav-item mb-2"><a href="makebookingrequest.html" class="nav-link p-0 text-secondary">Booking +</a></li>
                         <li class="nav-item mb-2"><a href="bookingsreq.html" class="nav-link p-0 text-secondary">Booking Actions</a></li>
                         <li class="nav-item mb-2"><a href="costs.html" class="nav-link p-0 text-secondary">Overview (Costs)</a></li>
                         <li class="nav-item mb-2"><a href="vj.html" class="nav-link p-0 text-secondary">For VJ's</a></li>
@@ -131,7 +100,7 @@
                     <h5>Meta</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="login.html" class="nav-link p-0 text-secondary">Login</a></li>
-                        <li class="nav-item mb-2"><a href="register.html" class="nav-link p-0 pc">Register</a></li>
+                        <li class="nav-item mb-2"><a href="register.html" class="nav-link p-0 text-secondary">Register</a></li>
                         <li class="nav-item mb-2"><a href="termsconditions.html" class="nav-link p-0 text-secondary">Terms & Conditions</a></li>
                         <li class="nav-item mb-2"><a href="privacypolicy.html" class="nav-link p-0 text-secondary">Privacy Policy</a>
                         <li class="nav-item mb-2"><a href="faqs.html" class="nav-link p-0 text-secondary">FAQs</a></li>
@@ -155,24 +124,10 @@
 
             <div class="d-flex flex-column flex-sm-row border-top align-items-center ">
                 <img class="bi me-5" width="30" height="30" role="img" aria-label="home" src="images/logo64x64.png">
-                <p class="my-4">&nbsp;&nbsp; &copy; TrifestaFest. All rights reserved. - design by <a
-                        href="https://de-toon.com/" target="_blank">deToon</a> with <a href="https://getbootstrap.com/"
-                        target="_blank">Bootstrap</a></p>
-                <ul class="list-unstyled d-flex">
-                    <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
-                                <use xlink:href="#twitter" />
-                            </svg></a></li>
-                    <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
-                                <use xlink:href="#instagram" />
-                            </svg></a></li>
-                    <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
-                                <use xlink:href="#facebook" />
-                            </svg></a></li>
+                <p class="my-4">&nbsp;&nbsp; &copy; TrifestaFest. All rights reserved.</p><p class="my-4" style="font-size: 10px;">- Design by <a href="https://de-toon.com/">deToon</a>, coded by YC2303, look @ <a href="credits.html">Credits</a></p> 
                 </ul>
             </div>
         </footer>
     </div>
 </body>
-<script href="javascript/checkbox.js"></script>
-
 </html>
