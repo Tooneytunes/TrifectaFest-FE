@@ -30,6 +30,7 @@
                 alert("password and repeat password do not match");
             }
 
+            // hier een loop maken met de check dan opslaan per rol
             // Check which box is checked
             var form = document.getElementById("newForm");
             for (var i = 0; i < form.elements["checkbox"].length; i++) {
@@ -113,7 +114,7 @@
                 </div>
                 <br />
                 <div class="form-floating">
-                    <input type="passwordrepeat" class="form-control" id="repeatPassword" placeholder="Password">
+                    <input type="password" class="form-control" id="repeatPassword" placeholder="Password">
                     <label for="floatingPassword">Repeat password</label>
                 </div>
                 <br />
