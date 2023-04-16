@@ -13,8 +13,42 @@
         <link href="css/style.css" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="/images/favicon_package/favicon-32x32.png">
         <title>Booking (Make new) - TrifectaFest</title>
+        <script>
+            function loadData() {
+                loadUser();
+                loadFestivals();
+            }
+
+            function loadFestivals(){
+                fetch("http://localhost:8080/api/festival/all")
+                .then(qq => qq.text()
+                .then( aa => {
+                    festivals = JSON.parse(aa);
+                    //console.log(festivals);
+                    //set option names
+                    // var dropdown =`<select class="form-select" aria-label="Default select example" >`;
+                    var dropdown = `<option selected>Select Festival</option>`;
+                    for (let index = 0; index < festivals.length; index++) {
+                        dropdown += `<option value="${festivals[index].id}">${festivals[index].name}</option>`;
+                    }
+                    //dropdown += `</select>`;
+                    document.getElementById("festivalDropDown").innerHTML = dropdown;
+                }))
+
+            }
+            function loadUser() {
+                var retrievedObject = localStorage.getItem('currentUser');
+
+                const currentUser =  JSON.parse(JSON.parse(retrievedObject));
+                // console.log(currentUser.name);
+
+                //set name 'welkom currentuser.name'
+                // document.getElementById("accountTitle").innerHTML = "Welcome " + currentUser.name;
+
+            }
+        </script>
     </head>
-<body>
+<body  onload="loadData()">
     <header class="p-3 text-bg-dark">
         <div class="container" id="home">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -53,12 +87,23 @@
     </header>
 
     <div class="container px-4 py-5" id="" style="color:white">
-        <h1 class="pb-2 border-bottom text-center">Title here</h1>
+        <h1 class="pb-2 border-bottom text-center" id="accountTitle">New booking request</h1>
 
         <div class="row row-cols-1 row-cols-lg-1 p-0 m-0">
             <div class="col text-center">
                 <div>
-                    <p>Place your content here</p>
+                    <p>Select which festival</p>
+                    <p>Select which stage</p>
+                    <select class="form-select" aria-label="Default select example" id = "festivalDropDown">
+                        <option selected>Select day</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    <p>input timeslot</p>
+                    <p>input synopsis</p>
+                    <p>input VJ</p>
+                    <p>input has VJ</p>
                 </div>
             </div>
         </div>
