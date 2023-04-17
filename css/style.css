@@ -65,6 +65,7 @@ a :hover {
     transform-origin: top left;
     margin-top: -15px;
     margin-bottom: -50px;
+    z-index: 2;
 }
 
 .pback {
