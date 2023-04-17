@@ -17,52 +17,6 @@
     <link rel="icon" type="image/x-icon" href="images/favicon_package/favicon-32x32.png">
     <title>Login - TrifectaFest</title>
 
-    <script>
-        function validateForm(person) {
-            if (person.name == "" || person.email == "" || person.password == "" || person.role == "") {
-                alert("field cannot be empty");
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        function createNewPerson() {
-            var person = {};
-            person.name = document.getElementById("name").value;
-            person.email = document.getElementById("email").value;
-
-            // Check if passwords are the same (uitgebreidere validatie)
-            if (document.getElementById("password").value == document.getElementById("repeatPassword").value) {
-                person.password = document.getElementById("password").value;
-            } else {
-                alert("password and repeat password do not match");
-            }
-
-            // Check which box is checked
-            var form = document.getElementById("newForm");
-            for (var i = 0; i < form.elements["checkbox"].length; i++) {
-                if (form.elements["checkbox"][i].checked) {
-                    person.role = form.elements["checkbox"][i].value;
-                }
-            }
-
-            // Replace URL with variable for role for backend endpoint
-            if (validateForm(person) == true) {
-                var data = JSON.stringify(person);
-                fetch("http://localhost:8080/api/" + person.role.toLowerCase() + "/new", {
-                    headers: {
-                        "Content-type": "application/json",
-                    },
-                    method: "POST",
-                    body: data,
-                });
-            }
-
-
-        }
-    </script>
-
 </head>
 
 <body>
@@ -245,5 +199,49 @@
     </div>
 </body>
 <script href="javascript/checkbox.js"></script>
+
+<script>
+    function validateForm(person) {
+        if (person.name == "" || person.email == "" || person.password == "" || person.role == "") {
+            alert("field cannot be empty");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function createNewPerson() {
+        var person = {};
+        person.name = document.getElementById("name").value;
+        person.email = document.getElementById("email").value;
+
+        // Check if passwords are the same (uitgebreidere validatie)
+        if (document.getElementById("password").value == document.getElementById("repeatPassword").value) {
+            person.password = document.getElementById("password").value;
+        } else {
+            alert("password and repeat password do not match");
+        }
+
+        // Check which box is checked
+        var form = document.getElementById("newForm");
+        for (var i = 0; i < form.elements["checkbox"].length; i++) {
+            if (form.elements["checkbox"][i].checked) {
+                person.role = form.elements["checkbox"][i].value;
+            }
+        }
+
+        // Replace URL with variable for role for backend endpoint
+        if (validateForm(person) == true) {
+            var data = JSON.stringify(person);
+            fetch("http://localhost:8080/api/" + person.role.toLowerCase() + "/new", {
+                headers: {
+                    "Content-type": "application/json",
+                },
+                method: "POST",
+                body: data,
+            });
+        }
+    }
+</script>
 
 </html>
