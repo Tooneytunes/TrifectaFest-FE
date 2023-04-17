@@ -18,6 +18,15 @@
     <title>Login - TrifectaFest</title>
 
     <script>
+        function validateForm(person) {
+            if (person.name == "" || person.email == "" || person.password == "" || person.role == "") {
+                alert("field cannot be empty");
+                return false;
+            } else {
+                return true;
+            }
+        }
+
         function createNewPerson() {
             var person = {};
             person.name = document.getElementById("name").value;
@@ -30,25 +39,26 @@
                 alert("password and repeat password do not match");
             }
 
-            // hier een loop maken met de check dan opslaan per rol
             // Check which box is checked
             var form = document.getElementById("newForm");
             for (var i = 0; i < form.elements["checkbox"].length; i++) {
                 if (form.elements["checkbox"][i].checked) {
-                    console.log(form.elements["checkbox"][i].value);
                     person.role = form.elements["checkbox"][i].value;
                 }
             }
-            console.log(person);
 
-            var data = JSON.stringify(person);
-            fetch("http://localhost:8080/api/customer/new", {
-                headers: {
-                    "Content-type": "application/json",
-                },
-                method: "POST",
-                body: data,
-            });
+            // Replace URL with variable for role for backend endpoint
+            if (validateForm(person) == true) {
+                var data = JSON.stringify(person);
+                fetch("http://localhost:8080/api/" + person.role.toLowerCase() + "/new", {
+                    headers: {
+                        "Content-type": "application/json",
+                    },
+                    method: "POST",
+                    body: data,
+                });
+            }
+
 
         }
     </script>
