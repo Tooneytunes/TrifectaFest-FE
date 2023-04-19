@@ -15,7 +15,7 @@
     <script src="javascript/checkbox.js"></script>
 
     <link rel="icon" type="image/x-icon" href="images/favicon_package/favicon-32x32.png">
-    <title>Login - TrifectaFest</title>
+    <title>Register - TrifectaFest</title>
 
 </head>
 
@@ -55,30 +55,30 @@
         </div>
     </header>
     <div class="text-center">
-
+        <!-- Start of the register form -->
         <main class="form-signin w-100 m-auto">
-            <form id="newForm">
+            <form id="newForm" onsubmit="return submitForm(this);">
                 <img class="mb-4" src="images/favicon_package/android-chrome-192x192.png" alt="" width="100"
                     height="100 " style="margin-top: 20px;border-radius: 150px;">
                 <h1 class="h3 mb-3 fw-bold text-white">Register new account</h1>
                 <div class="form-floating" style="margin-top: 40px;">
-                    <input type="name" class="form-control" id="name" placeholder="name@example.com">
+                    <input type="name" class="form-control" id="name" placeholder="Name">
                     <label for="floatingInput">Name</label>
                 </div>
                 <br />
                 <div class="form-floating">
-                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                    <input type="email" class="form-control" id="email" placeholder="Email address">
                     <label for="floatingInput">Email address</label>
                 </div>
 
                 <br />
                 <div class="form-floating">
-                    <input type="password" class="form-control" id="password" placeholder="name@example.com">
+                    <input type="password" class="form-control" id="password" placeholder="Password">
                     <label for="floatingInput">Password</label>
                 </div>
                 <br />
                 <div class="form-floating">
-                    <input type="password" class="form-control" id="repeatPassword" placeholder="Password">
+                    <input type="password" class="form-control" id="repeatPassword" placeholder="Repeat Password">
                     <label for="floatingPassword">Repeat password</label>
                 </div>
                 <br />
@@ -95,9 +95,9 @@
                         onclick="checkedOnClick(this);">
                     Organizer <br>
                     <br />
-
                 </div>
-                <button class="w-100 btn btn-lg" type="button" onclick="createNewPerson()"
+                <!-- Register button -->
+                <button class="w-100 btn btn-lg" type="submit" onclick="createNewPerson()"
                     style="background-color:#9B59B6;">Make account</button>
             </form>
         </main>
@@ -240,6 +240,14 @@
                 method: "POST",
                 body: data,
             });
+        }
+    }
+    function submitForm() {
+        if (confirm('Do you really want to submit the form?')) {
+            return true;
+        }
+        else {
+            return false;
         }
     }
 </script>
