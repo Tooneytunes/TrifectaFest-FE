@@ -1,20 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
-        integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
-        crossorigin="anonymous"></script>
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="images/favicon_package/favicon-32x32.png">
-    <title>Login - TrifectaFest</title>
-</head>
+<<<<<<< HEAD
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+            integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
+            crossorigin="anonymous"></script>
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="javascript/countdown.js"></script>
+        <link rel="icon" type="image/x-icon" href="/images/favicon_package/favicon-32x32.png">
+        <title>Login - TrifectaFest</title>
+        <script>
+            function userLogin(){
+                var email = document.getElementById("floatingInput").value;
+                var password = document.getElementById("floatingPassword").value;
+                var userData = {};
+                userData.email = email;
+                userData.password = password;
+                var data = JSON.stringify(userData); //dikke vette encoder >>>> onleesbaar
+    
+             
+                fetch("http://localhost:8080/api/login/user", {
+              headers: {
+                "Content-type": "application/json",
+              },
+              method: "POST",
+              body: data,
+            }).then(qq => qq.text()).then( aa => console.log(aa));
+            }
+        </script>
+    </head>
+<body>
 
 <body onload="CheckUser()">
     <header class="p-3 text-bg-dark">
@@ -53,6 +74,48 @@
     </header>
 
     <div class="text-center">
+<<<<<<< HEAD
+     
+  <main class="form-signin w-100 m-auto">
+    <form>
+      <img class="mb-4" src="images/favicon_package/android-chrome-192x192.png" alt="" width="100" height="100 " style="margin-top: 20px;border-radius: 150px;">
+      <h1 class="h3 mb-3 fw-bold text-white">Please sign in</h1>
+  
+      <div class="form-floating" style="margin-top: 40px;">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+      </div>
+      <br/>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+  
+      <div class="checkbox mb-3 text-white">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <!-- change to button submit -->
+      <button class="w-100 btn btn-lg" type="button" style="background-color:#9B59B6;" onclick="userLogin()">Login</button> 
+      <p></p>
+        
+    </form>
+    <button type="submit" class="w-100 btn btn-lg btn-outline-secondary" onclick="window.location.href='register.html'">Make new account</button>
+      <p class="mt-5 mb-3 text-white">&copy; 2017–2023</p>
+  </main>
+</div>
+<div class="container">
+    <footer class="py-5">
+        <div class="row">
+            <div class="col-6 col-md-2 mb-3">
+                <h5>Menu</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0 text-secondary">Home</a></li>
+                    <li class="nav-item mb-2"><a href="lineup.html" class="nav-link p-0 text-secondary">Lineup</a></li>
+                    <li class="nav-item mb-2"><a href="festivals.html" class="nav-link p-0 text-secondary">Festivals</a></li>
+                    <li class="nav-item mb-2"><a href="news.html" class="nav-link p-0 text-secondary">News</a></li>
+                    <li class="nav-item mb-2"><a href="info.html" class="nav-link p-0 text-secondary">Info</a></li>
         <main class="form-signin w-100 m-auto">
             <div>
                 <img class="mb-4" src="images/favicon_package/android-chrome-192x192.png" alt="" width="100"
@@ -152,6 +215,9 @@
     </div>
     
 </body>
+<<<<<<< HEAD
+</html>
+=======
 <script>
     function userLogin() {
         var email = document.getElementById("floatingInput").value;
@@ -179,3 +245,4 @@
     }
 </script>
 </html>
+>>>>>>> main
