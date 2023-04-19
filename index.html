@@ -12,6 +12,7 @@
         crossorigin="anonymous"></script>
     <link href="css/bootstrap.css" rel="stylesheet">
     <script src="javascript/countdown.js"></script>
+    <script src="javascript/checkuser.js"></script>
     <link rel="icon" type="image/x-icon" href="images/favicon_package/favicon-32x32.png">
     <link href="css/style.css" rel="stylesheet">
     <title>TrifectaFest</title>
@@ -50,18 +51,9 @@
                     <button type="button" class="btn btn-warning pback"
                         onclick="window.location.href='tickets.html'">Tickets</button>
                 </div>
-            
-
             </div>
         </div>
-
-        
         <div class="container" id="username">
-            <hr>
-            <div style="display: inline-block;">Hello: &nbsp;</div>
-            <div class="pc" style="display: inline-block;">Unknown</div>
-            <div style="display: inline-block;">&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;You're a:&nbsp;</div>
-            <div class="pc" style="display: inline-block;">Role</div>
         </div>
     </header>
 
@@ -89,7 +81,6 @@
                                 <p><a class="btn btn-lg btn-outline-light"
                                         href="login.html">Login</a>&nbsp;&nbsp;&nbsp;<a
                                         class="btn btn-lg btn-primary pback" href="tickets.html">Tickets</a></p>
-
                             </div>
                         </div>
                     </div>
@@ -421,6 +412,7 @@
                 <p class="my-4" style="font-size: 10px;">- Design by <a href="https://de-toon.com/">deToon</a>, coded by
                     YC2303, look @ <a href="credits.html">Credits</a></p>
                 </ul>
+                
             </div>
         </footer>
     </div>
@@ -429,37 +421,5 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 </body>
-<script>
-    function CheckUser() {
-        if (localStorage.getItem("Person") === null) {
-            document.getElementById("username").style.display = "none";
-        }
-        else {
-            var person = JSON.parse(localStorage.getItem("Person"));
-            document.getElementById("username").innerHTML = `
-            <hr>
-            <div class="container" id="username">
-            <div style="display: inline-block;">Hello: &nbsp;</div>
-            <div class="pc" style="display: inline-block;">${person.name}</div>
-            <div style="display: inline-block;">&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;You're a:&nbsp;</div>
-            <div class="pc" style="display: inline-block;">${person.role}</div>
-            </div>
-            `;
-            loginbtn = document.getElementById("loginbtn");
-            loginbtn.onclick = function () { if (logOut()) { localStorage.removeItem("Person"); window.location.reload(); } };
-            loginbtn.innerHTML = "Logout";
-        }
-    }
-
-    function logOut() {
-        if (confirm('Do you really want to log out?')) {
-            alert('You are now logged out');
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-</script>
 
 </html>
