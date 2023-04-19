@@ -12,43 +12,17 @@
         crossorigin="anonymous"></script>
     <link href="css/bootstrap.css" rel="stylesheet">
     <script src="javascript/countdown.js"></script>
+    <script src="javascript/checkuser.js"></script>
     <link rel="icon" type="image/x-icon" href="images/favicon_package/favicon-32x32.png">
     <link href="css/style.css" rel="stylesheet">
     <title>TrifectaFest</title>
-    <script>
-        function CheckUser(){
-            if(localStorage.getItem("Person") === null)
-            {
-            }
-            else
-            {
-                var person = JSON.parse(localStorage.getItem("Person"));
-                document.getElementById("username").innerHTML = `
-                <div class="text-primary px-2">${person.name}</div>
-                <div class="text-secondary px-2">${person.role}</div>
-                `;
-                loginbtn = document.getElementById("loginbtn");
-                loginbtn.onclick = function(){if(logOut()){localStorage.removeItem("Person"); window.location.reload();} };
-                loginbtn.innerHTML = "Logout";
-            }
-        }
-
-        function logOut() {
-            if (confirm('Do you really want to log out?')) {
-                alert('You are now logged out');
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-    </script>
 </head>
 
+
 <body onload="CheckUser()">
-    <header class="p-3 text-bg-dark" >
+    <header class="p-3 text-bg-dark">
         <div class="container" id="home">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <div class="d-flex flex-wrap align-items-center justify-content-lg-start">
                 <a href="index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                     <img class="bi me-2" width="40" height="40" role="img" aria-label="home" src="images/logo64x64.png"
                         style="margin-right: 20px;">
@@ -77,12 +51,10 @@
                         onclick="window.location.href='login.html'">Login</button>
                     <button type="button" class="btn btn-warning pback"
                         onclick="window.location.href='tickets.html'">Tickets</button>
-                        </div>
-                <div class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-right mb-md-0", id="username">
-                    <div class="text-primary px-2">Unknown</div>
                 </div>
-
             </div>
+        </div>
+        <div class="container" id="username">
         </div>
     </header>
 
@@ -110,7 +82,6 @@
                                 <p><a class="btn btn-lg btn-outline-light"
                                         href="login.html">Login</a>&nbsp;&nbsp;&nbsp;<a
                                         class="btn btn-lg btn-primary pback" href="tickets.html">Tickets</a></p>
-
                             </div>
                         </div>
                     </div>
@@ -389,7 +360,7 @@
                                 Tickets</a></li>
                         <li class="nav-item mb-2"><a href="makefestival.html"
                                 class="nav-link p-0 text-secondary">Festival +</a></li>
-                        <li class="nav-item mb-2"><a href="register.html" class="nav-link p-0 text-secondary">Person
+                        <li class="nav-item mb-2"><a href="makeperson.html" class="nav-link p-0 text-secondary">Person
                                 +</a></li>
                         <li class="nav-item mb-2"><a href="maketicket.html" class="nav-link p-0 text-secondary">Ticket
                                 +</a></li>
@@ -442,6 +413,7 @@
                 <p class="my-4" style="font-size: 10px;">- Design by <a href="https://de-toon.com/">deToon</a>, coded by
                     YC2303, look @ <a href="credits.html">Credits</a></p>
                 </ul>
+                
             </div>
         </footer>
     </div>
