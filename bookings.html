@@ -67,6 +67,7 @@
                                 <th>Day</th>
                                 <th>Has VJ</th>
                                 <th>Need VJ</th>
+                                <th>Status</th>
                                 <th>Synopsis</th>
                                 <th>Time Slot</th>
                                 <th>Artist id</th>
@@ -196,6 +197,10 @@
                         var needVJCell = document.createElement('td');
                         needVJCell.textContent = item.need_vj;
                         row.appendChild(needVJCell);
+
+                        var statusCell = document.createElement('td');
+                        statusCell.textContent = item.status;
+                        row.appendChild(statusCell);
 
                         var synopsisCell = document.createElement('td');
                         synopsisCell.textContent = item.synopsis;
