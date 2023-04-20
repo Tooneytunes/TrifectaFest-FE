@@ -11,13 +11,15 @@
             crossorigin="anonymous"></script>
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
+        <script src="javascript/checkuser.js"></script>
         <link rel="icon" type="image/x-icon" href="images/favicon_package/favicon-32x32.png">
         <title>Booking (Make new) - TrifectaFest</title>
     </head>
-<body>
+
+<body onload="loadData()">
     <header class="p-3 text-bg-dark">
         <div class="container" id="home">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <div class="d-flex flex-wrap align-items-center justify-content-lg-start">
                 <a href="index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                     <img class="bi me-2" width="40" height="40" role="img" aria-label="home" src="images/logo64x64.png"
                         style="margin-right: 20px;">
@@ -29,7 +31,7 @@
                     </li>
                 </ul>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="index.html" class="nav-link px-2 text-secondary"> Home</a></li>
+                    <li><a href="index.html" class="nav-link px-2 pc"> Home</a></li>
                     <li><a href="lineup.html" class="nav-link px-2 text-secondary">Line-Up</a></li>
                     <li><a href="festivals.html" class="nav-link px-2 text-secondary">Festivals</a></li>
                     <li><a href="news.html" class="nav-link px-2 text-secondary">News</a></li>
@@ -42,23 +44,57 @@
                 </form>
 
                 <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2"
+                    <button type="button" class="btn btn-outline-light me-2" id="loginbtn"
                         onclick="window.location.href='login.html'">Login</button>
                     <button type="button" class="btn btn-warning pback"
                         onclick="window.location.href='tickets.html'">Tickets</button>
-                        </div>
-
+                </div>
             </div>
+        </div>
+        <div class="container" id="username">
         </div>
     </header>
 
     <div class="container px-4 py-5" id="" style="color:white">
-        <h1 class="pb-2 border-bottom text-center">Title here</h1>
+        <h1 class="pb-2 border-bottom text-center" id="accountTitle">New booking request</h1>
 
         <div class="row row-cols-1 row-cols-lg-1 p-0 m-0">
             <div class="col text-center">
                 <div>
-                    <p>Place your content here</p>
+                    <p>Select which festival</p>
+					<select class="form-select" aria-label="Default select example" id = "festivalDropDown" onClick="loadStage()">
+                        <option value="" selected>Select day</option>
+                      </select>
+                    <p>Select which stage</p>
+                    <select class="form-select" aria-label="Default select example" id = "stageDropDown">
+                        <option value="" selected>Select stage</option>
+                      </select>
+                    <p>input day</p>
+					<select class="form-select" aria-label="Default select example" id = "dayDropDown">
+                        <option selected>Select day</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+                      </select>
+					<p>input timeslot</p>
+					<select class="form-select" aria-label="Default select example" id = "timeDropDown">
+                        <option selected>Select day</option>
+						<option value="1">14:00</option>
+						<option value="2">15:00</option>
+						<option value="3">16:00</option>
+						<option value="4">17:00</option>
+						<option value="5">18:00</option>
+						<option value="6">19:00</option>
+						<option value="7">20:00</option>
+						<option value="8">21:00</option>
+                      </select>
+                    <p>input synopsis</p>
+					<input type="textArea" class="form-control" id="floatingSynopsis" placeholder="synopsis">
+                    <!-- <p>input VJ</p> -->
+					<input type="checkbox" id="needVj" value="needVj"> Need a VJ?
+                    <!-- <p>input has VJ</p> -->
+					<input type="checkbox" id="hasVj" value="hasVj"> VJ Provided?
+					<button type="submit" class="w-100 btn btn-lg btn-outline-secondary" onclick="submit()">submit request</button>
                 </div>
             </div>
         </div>
@@ -87,7 +123,7 @@
                         <li class="nav-item mb-2"><a href="bookings.html" class="nav-link p-0 text-secondary">All Bookings</a></li>
                         <li class="nav-item mb-2"><a href="tickets.html" class="nav-link p-0 text-secondary">All Tickets</a></li>
                         <li class="nav-item mb-2"><a href="makefestival.html" class="nav-link p-0 text-secondary">Festival +</a></li>
-                        <li class="nav-item mb-2"><a href="makeperson.html" class="nav-link p-0 text-secondary">Person +</a></li>
+                        <li class="nav-item mb-2"><a href="register.html" class="nav-link p-0 text-secondary">Person +</a></li>
                         <li class="nav-item mb-2"><a href="maketicket.html" class="nav-link p-0 text-secondary">Ticket +</a></li>
                         <li class="nav-item mb-2"><a href="makebookingrequest.html" class="nav-link p-0 pc">Booking +</a></li>
                         <li class="nav-item mb-2"><a href="bookingsreq.html" class="nav-link p-0 text-secondary">Booking Actions</a></li>
@@ -130,4 +166,82 @@
         </footer>
     </div>
 </body>
+<script>
+	function loadData() {
+        CheckUser()
+		loadUser();
+		loadFestivals();
+	}
+
+	function loadFestivals(){
+		fetch("http://localhost:8080/api/festival/all")
+		.then(qq => qq.text()
+		.then( aa => {
+			festivals = JSON.parse(aa);
+			var dropdown = `<option  value="" selected>Select Festival</option>`;
+			for (let index = 0; index < festivals.length; index++) {
+				dropdown += `<option value="${festivals[index].id}">${festivals[index].name}</option>`;
+			}
+			document.getElementById("festivalDropDown").innerHTML = dropdown;
+		}))
+	}
+	function loadUser() {
+		var retrievedObject = localStorage.getItem('user');
+
+		const currentUser =  JSON.parse(JSON.parse(retrievedObject));
+		// console.log(currentUser.name);
+
+		//set name 'welkom currentuser.name'
+		// document.getElementById("accountTitle").innerHTML = "Welcome " + currentUser.name;
+
+	}
+
+
+	function submit(){
+	var bookingrequest = {};
+	artistId = 1;//local storage
+	stageId = document.getElementById("stageDropDown").value;
+	if(stageId){
+		// console.log(stageId);
+		bookingrequest.timeSlot = document.getElementById("timeDropDown").value;
+		bookingrequest.day  = document.getElementById("dayDropDown").value;
+		bookingrequest.needVj = document.getElementById("needVj").checked;
+		bookingrequest.hasVj = document.getElementById("hasVj").checked;
+		bookingrequest.synopsis = document.getElementById("floatingSynopsis").value;
+
+		var data = JSON.stringify(bookingrequest);
+
+		fetch("http://localhost:8080/api/bookingrequest/new/" + artistId + "/" + stageId,{
+              headers: {
+                "Content-type": "application/json",
+              },
+              method: "POST",
+              body: data,
+            }).then(qq => qq.text()).then( aa => console.log(aa));
+
+		}
+
+	}
+	
+
+	function loadStage(){
+		var festival;
+		if(document.getElementById("festivalDropDown").value != ""){
+			a = document.getElementById("festivalDropDown").value;
+			if(a != null){
+			fetch("http://localhost:8080/api/festival/get/"+a).then(qq => qq.text()
+				.then( aa => {
+					festival = JSON.parse(aa);
+					// console.log(festival);
+					var dropdown = `<option value="" selected>Select Stage</option>`;
+					for (let index = 0; index < festival.stages.length; index++) {
+						dropdown += `<option value="${festival.stages[index].id}">${festival.stages[index].name}</option>`;
+					}
+					document.getElementById("stageDropDown").innerHTML = dropdown;
+				}))
+
+			}
+		}
+	}
+</script>
 </html>
