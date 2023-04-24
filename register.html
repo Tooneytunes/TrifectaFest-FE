@@ -201,6 +201,7 @@
 <script href="javascript/checkbox.js"></script>
 
 <script>
+    // Check if all fields are filled in
     function validateForm(person) {
         if (person.name == "" || person.email == "" || person.password == "" || person.role == "") {
             alert("field cannot be empty");
@@ -242,6 +243,8 @@
             });
         }
     }
+
+    // Show pop-up to confirm form submission
     function submitForm() {
         if (confirm('Do you really want to submit the form?')) {
             return true;
