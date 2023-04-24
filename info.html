@@ -199,7 +199,7 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
     <script type="text/javascript">
-        fetch('http://localhost:8080/api/festival/all')
+        fetch(backendUrl + '/api/festival/all')
             .then(response => response.json())
             .then(data => {
                 var tableBody = document.querySelector('#data-table tbody');
@@ -241,7 +241,7 @@
                     var errorRow = document.createElement('tr');
                     var errorCell = document.createElement('td');
                     errorCell.setAttribute('colspan', '4');
-                    errorCell.textContent = 'Failed to fetch data. No connection to the backend was made, nothing was found at address: http://localhost:8080/api/festival/all -> Eclipse Java-Application might not be running';
+                    errorCell.textContent = 'Failed to fetch data. No connection to the backend was made, nothing was found at address: backendUrl + /api/festival/all -> Eclipse Java-Application might not be running';
                     errorRow.appendChild(errorCell);
                     tableBody.appendChild(errorRow);
                 }
