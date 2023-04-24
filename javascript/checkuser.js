@@ -1,3 +1,6 @@
+// backend url link voor de azure
+var backendUrl = "https://trifectafest.azurewebsites.net"
+
 function CheckUser() {
     if (localStorage.getItem("Person") === null) {
         document.getElementById("username").style.display = "none";

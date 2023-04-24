@@ -206,7 +206,7 @@
         // Replace URL with variable for role for backend endpoint
         if (validateForm(person) == true) {
             var data = JSON.stringify(person);
-            fetch("http://localhost:8080/api/" + person.role.toLowerCase() + "/new", {
+            fetch(backendUrl + "/api/" + person.role.toLowerCase() + "/new", {
                 headers: {
                     "Content-type": "application/json",
                 },
