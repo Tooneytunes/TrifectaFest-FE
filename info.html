@@ -203,6 +203,12 @@
             .then(response => response.json())
             .then(data => {
                 var tableBody = document.querySelector('#data-table tbody');
+                var person = JSON.parse(localStorage.getItem("Person"));
+                if(person.role === "Customer"){
+                    var th = document.createElement('th');
+                    th.value = "Tickets"
+                    document.getElementById("data-table").children[0].children[0].innerHTML += `<th>Tickets</th>`;
+                }
                 if (data.length === 0) { // check if the response data is empty
                     var errorRow = document.createElement('tr');
                     var errorCell = document.createElement('td');
@@ -229,6 +235,18 @@
                         var endDateCell = document.createElement('td');
                         endDateCell.textContent = item.endDate;
                         row.appendChild(endDateCell);
+
+                        if(person.role === "Customer")
+                        {
+                            var buyTicketCell = document.createElement('td');
+                            var btn = document.createElement('input');
+                            btn.className = "btn";
+                            btn.type = "button";
+                            btn.value = "BUY";
+                            //btn.onclick = BuyTicket(item.id, person.id)
+                            buyTicketCell.appendChild(btn);
+                            row.appendChild(buyTicketCell);
+                        }
         
                         tableBody.appendChild(row);
                     });
@@ -246,6 +264,12 @@
                     tableBody.appendChild(errorRow);
                 }
             });
+        </script>
+        <script>
+            function BuyTicket(fId, cId)
+            {
+                fetch()
+            }
         </script>
         
 
