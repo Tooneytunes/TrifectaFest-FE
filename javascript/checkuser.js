@@ -1,5 +1,5 @@
 // backend url link voor de azure
-var backendUrl = "https://trifectafest.azurewebsites.net"
+var backendUrl = "https://trifectafest.azurewebsites.net"//"http://localhost:8080"//
 
 function CheckUser() {
     if (localStorage.getItem("Person") === null) {
