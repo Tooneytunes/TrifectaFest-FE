@@ -243,7 +243,7 @@
                             btn.className = "btn";
                             btn.type = "button";
                             btn.value = "BUY";
-                            //btn.onclick = BuyTicket(item.id, person.id)
+                            btn.onclick = () => {BuyTicket(item, person)};
                             buyTicketCell.appendChild(btn);
                             row.appendChild(buyTicketCell);
                         }
@@ -258,16 +258,27 @@
                     var errorRow = document.createElement('tr');
                     var errorCell = document.createElement('td');
                     errorCell.setAttribute('colspan', '4');
-                    errorCell.textContent = 'Failed to fetch data. No connection to the backend was made, nothing was found at address: backendUrl + /api/festival/all -> Eclipse Java-Application might not be running';
+                    errorCell.textContent = `Failed to fetch data. No connection to the backend was made, nothing was found at address: ${backendUrl} + /api/festival/all -> Eclipse Java-Application might not be running`;
                     errorRow.appendChild(errorCell);
                     tableBody.appendChild(errorRow);
                 }
             });
         </script>
         <script>
-            function BuyTicket(fId, cId)
+            function BuyTicket(festival, customer)
             {
-                fetch()
+                var ticket = {};
+                ticket.startDate = festival.beginDate;
+                ticket.endDate = festival.endDate;
+                var data = JSON.stringify(ticket);
+                
+                fetch(`${backendUrl}/api/ticket/new/${customer.id}/${festival.id}`, {
+                    headers: {
+                        "Content-type": "application/json",
+                    },
+                    method: "POST",
+                    body: data,
+                })
             }
         </script>
 
