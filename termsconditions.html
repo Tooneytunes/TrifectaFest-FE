@@ -11,13 +11,14 @@
             crossorigin="anonymous"></script>
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
+        <script src="javascript/checkuser.js"></script>
         <link rel="icon" type="image/x-icon" href="images/favicon_package/favicon-32x32.png">
         <title>Terms & Conditions - TrifectaFest</title>
     </head>
-<body>
+<body onload="CheckUser()">
     <header class="p-3 text-bg-dark">
         <div class="container" id="home">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <div class="d-flex flex-wrap align-items-center justify-content-lg-start">
                 <a href="index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                     <img class="bi me-2" width="40" height="40" role="img" aria-label="home" src="images/logo64x64.png"
                         style="margin-right: 20px;">
@@ -29,7 +30,7 @@
                     </li>
                 </ul>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="index.html" class="nav-link px-2 text-secondary"> Home</a></li>
+                    <li><a href="index.html" class="nav-link px-2 pc"> Home</a></li>
                     <li><a href="lineup.html" class="nav-link px-2 text-secondary">Line-Up</a></li>
                     <li><a href="festivals.html" class="nav-link px-2 text-secondary">Festivals</a></li>
                     <li><a href="news.html" class="nav-link px-2 text-secondary">News</a></li>
@@ -42,13 +43,14 @@
                 </form>
 
                 <div class="text-end">
-                    <button type="button" class="btn btn-outline-light me-2"
+                    <button type="button" class="btn btn-outline-light me-2" id="loginbtn"
                         onclick="window.location.href='login.html'">Login</button>
                     <button type="button" class="btn btn-warning pback"
                         onclick="window.location.href='tickets.html'">Tickets</button>
-                        </div>
-
+                </div>
             </div>
+        </div>
+        <div class="container" id="username">
         </div>
     </header>
 
@@ -87,7 +89,7 @@
                         <li class="nav-item mb-2"><a href="bookings.html" class="nav-link p-0 text-secondary">All Bookings</a></li>
                         <li class="nav-item mb-2"><a href="tickets.html" class="nav-link p-0 text-secondary">All Tickets</a></li>
                         <li class="nav-item mb-2"><a href="makefestival.html" class="nav-link p-0 text-secondary">Festival +</a></li>
-                        <li class="nav-item mb-2"><a href="makeperson.html" class="nav-link p-0 text-secondary">Person +</a></li>
+                        <li class="nav-item mb-2"><a href="register.html" class="nav-link p-0 text-secondary">Person +</a></li>
                         <li class="nav-item mb-2"><a href="maketicket.html" class="nav-link p-0 text-secondary">Ticket +</a></li>
                         <li class="nav-item mb-2"><a href="makebookingrequest.html" class="nav-link p-0 text-secondary">Booking +</a></li>
                         <li class="nav-item mb-2"><a href="bookingsreq.html" class="nav-link p-0 text-secondary">Booking Actions</a></li>
