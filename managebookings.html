@@ -34,6 +34,36 @@
         background-color: #9B59B6;
         color: white;
     }
+
+    .approvebtn {
+        border-radius: 4px;
+        background-color: #0be87a;
+        border: none;
+        padding: 10px 10px;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    .deniedbtn {
+        border-radius: 4px;
+        background-color: #e80b0b;
+        border: none;
+        padding: 10px 10px;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+
+    .pendingbtn {
+        border-radius: 4px;
+        background-color: #ff9d00;
+        border: none;
+        padding: 10px 10px;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
 </style>
 
 <body onload="CheckUser()">
@@ -75,12 +105,24 @@
         </div>
     </header>
 
+
     <div class="container-lg" id="" style="color:white">
-        <h1 class="pb-2 border-bottom text-center">Your current bookingrequests</h1>
+        <h1 class="pb-2 border-bottom text-center">Current bookingrequests</h1>
 
         <div class="container-fluid p-0 m-0" id="quotes">
             <div class="row">
                 <div class="col-lg-12 mx-auto">
+
+                    <!-- Create buttons to sort tables based on column index -->
+                    <div style="text-align:center">
+                        <button class="btn btn-warning pback" onclick="sortTable(4)">Sort by Status</button>
+                        <button class="btn btn-warning pback" onclick="sortTable(7)">Sort by Time Slot</button>
+                        <button class="btn btn-warning pback" onclick="sortTable(8)">Sort by Artist name</button>
+                        <button class="btn btn-warning pback" onclick="sortTable(9)">Sort by Stage name</button>
+                    </div>
+                    <br>
+
+                    <!-- Start of the table head -->
                     <table id="data-table" style="color:white; ">
                         <thead>
                             <tr>
@@ -89,11 +131,11 @@
                                 <th>Has VJ</th>
                                 <th>Need VJ</th>
                                 <th>Status</th>
+                                <th>Action</th>
                                 <th>Synopsis</th>
                                 <th>Time Slot</th>
-                                <th>Artist id</th>
-                                <!-- <th>Booking id</th> -->
-                                <th>Stage id</th>
+                                <th>Artist name</th>
+                                <th>Stage name</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -189,13 +231,18 @@
             </div>
         </footer>
     </div>
+
     <script>
-        console.log("bookings.html")
+
+        function setStatusApproved() {
+            console.log("ok");
+        }
+
+        // Function to fill the table based on JSON info
         var personObject = localStorage.getItem("Person");
         var personId = JSON.parse(personObject).id;
-        console.log(personId);
 
-        fetch(backendUrl + "/api/artist/bookingrequest/" + personId)
+        fetch(backendUrl + "/api/bookingrequest/all")
             .then(response => response.json())
             .then(data => {
 
@@ -203,7 +250,7 @@
                 if (data.length === 0) { // check if the response data is empty
                     var errorRow = document.createElement('tr');
                     var errorCell = document.createElement('td');
-                    errorCell.setAttribute('colspan', '8'); // span all columns in the table
+                    errorCell.setAttribute('colspan', '10'); // span all columns in the table
                     errorCell.textContent = 'No data found';
                     errorRow.appendChild(errorCell);
                     tableBody.appendChild(errorRow);
@@ -221,7 +268,7 @@
                         row.appendChild(dayCell);
 
                         var hasVJCell = document.createElement('td');
-                        hasVJCell.textContent = item.hasVj;
+                        hasVJCell.innerText = item.hasVj;
                         if (hasVJCell.innerText == "true") {
                             hasVJCell.innerText = "yes";
                         } else {
@@ -245,6 +292,111 @@
                         statusCell.style.textAlign = "center";
                         row.appendChild(statusCell);
 
+                        var actionCell = document.createElement('td');
+                        var approveButton = document.createElement("approve");
+                        approveButton.type = "button";
+                        approveButton.className = "approvebtn";
+                        approveButton.value = "approve";
+
+                        approveButton.onclick = (function () {
+                            // assume we want to access the first cell in the same row as the second cell in the first row
+                            const cell = document.querySelector('#data-table tbody tr:first-child td:nth-child(2)');
+                            // get the parent row using the id attribute
+                            const rowtest = document.querySelector('#row1');
+                            // get the first cell in the same row
+                            const firstCellInSameRow = row.cells[0];
+                            // do something with the first cell in the same row
+                            console.log(firstCellInSameRow.textContent);
+                            fetch(backendUrl + "/api/bookingrequest/get/" + firstCellInSameRow.textContent)
+                                .then(response => response.json())
+                                .then(data => {
+                                    var updateBooking = data;
+                                    updateBooking.status = "approved";
+                                    console.log((updateBooking));
+                                    var bookingData = JSON.stringify(updateBooking);
+
+                                    fetch(backendUrl + "/api/bookingrequest/update/" + firstCellInSameRow.textContent, {
+                                        headers: {
+                                            "Content-type": "application/json",
+                                        },
+                                        method: "PUT",
+                                        body: bookingData,
+                                    });
+                                })
+                            setTimeout(function () { window.location.reload(); }, 100);
+                        });
+
+
+                        var pendingButton = document.createElement("pending");
+                        pendingButton.type = "button";
+                        pendingButton.className = "pendingbtn";
+                        pendingButton.value = "pending";
+                        pendingButton.onclick = (function () {
+                            // assume we want to access the first cell in the same row as the second cell in the first row
+                            const cell = document.querySelector('#data-table tbody tr:first-child td:nth-child(2)');
+                            // get the parent row using the id attribute
+                            const rowtest = document.querySelector('#row1');
+                            // get the first cell in the same row
+                            const firstCellInSameRow = row.cells[0];
+                            // do something with the first cell in the same row
+                            console.log(firstCellInSameRow.textContent);
+                            fetch(backendUrl + "/api/bookingrequest/get/" + firstCellInSameRow.textContent)
+                                .then(response => response.json())
+                                .then(data => {
+                                    var updateBooking = data;
+                                    updateBooking.status = "pending";
+                                    console.log((updateBooking));
+                                    var bookingData = JSON.stringify(updateBooking);
+
+                                    fetch(backendUrl + "/api/bookingrequest/update/" + firstCellInSameRow.textContent, {
+                                        headers: {
+                                            "Content-type": "application/json",
+                                        },
+                                        method: "PUT",
+                                        body: bookingData,
+                                    });
+                                })
+                            setTimeout(function () { window.location.reload(); }, 100);
+                        });
+
+                        var deniedButton = document.createElement("denied");
+                        deniedButton.type = "button";
+                        deniedButton.className = "deniedbtn";
+                        deniedButton.value = "denied";
+                        deniedButton.onclick = (function () {
+                            // assume we want to access the first cell in the same row as the second cell in the first row
+                            const cell = document.querySelector('#data-table tbody tr:first-child td:nth-child(2)');
+                            // get the parent row using the id attribute
+                            const rowtest = document.querySelector('#row1');
+                            // get the first cell in the same row
+                            const firstCellInSameRow = row.cells[0];
+                            // do something with the first cell in the same row
+                            console.log(firstCellInSameRow.textContent);
+                            fetch(backendUrl + "/api/bookingrequest/get/" + firstCellInSameRow.textContent)
+                                .then(response => response.json())
+                                .then(data => {
+                                    var updateBooking = data;
+                                    updateBooking.status = "denied";
+                                    console.log((updateBooking));
+                                    var bookingData = JSON.stringify(updateBooking);
+
+                                    fetch(backendUrl + "/api/bookingrequest/update/" + firstCellInSameRow.textContent, {
+                                        headers: {
+                                            "Content-type": "application/json",
+                                        },
+                                        method: "PUT",
+                                        body: bookingData,
+                                    });
+                                })
+                            setTimeout(function () { window.location.reload(); }, 100);
+                        });
+
+                        actionCell.style.textAlign = "center";
+                        actionCell.appendChild(approveButton);
+                        actionCell.appendChild(pendingButton);
+                        actionCell.appendChild(deniedButton);
+                        row.appendChild(actionCell);
+
                         var synopsisCell = document.createElement('td');
                         synopsisCell.textContent = item.synopsis;
                         row.appendChild(synopsisCell);
@@ -258,10 +410,6 @@
                         artistIdCell.textContent = item.artist.name;
                         artistIdCell.style.textAlign = "center";
                         row.appendChild(artistIdCell);
-
-                        // var bookingIdCell = document.createElement('td');
-                        // bookingIdCell.textContent = item.booking.id;
-                        // row.appendChild(bookingIdCell);
 
                         var stageIdCell = document.createElement('td');
                         stageIdCell.textContent = item.stage.name;
@@ -278,12 +426,57 @@
                     var tableBody = document.querySelector('#data-table tbody');
                     var errorRow = document.createElement('tr');
                     var errorCell = document.createElement('td');
-                    errorCell.setAttribute('colspan', '8');
+                    errorCell.setAttribute('colspan', '10');
                     errorCell.textContent = 'Failed to fetch data. No connection to the backend was made, nothing was found at address: backendUrl + /api/festival/all -> Eclipse Java-Application might not be running';
                     errorRow.appendChild(errorCell);
                     tableBody.appendChild(errorRow);
                 }
             });
+
+        // Create a function to sort the table on columns
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("data-table");
+            switching = true;
+            // Set the sorting direction to ascending:
+            dir = "asc";
+            // Loop until no more switching needs to be done:
+            while (switching) {
+                switching = false;
+                rows = table.getElementsByTagName("tr");
+                // Loop through all table rows (except the first, which contains table headers):
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    // Get the two elements you want to compare, one from current row and one from the next:
+                    x = rows[i].getElementsByTagName("td")[n];
+                    y = rows[i + 1].getElementsByTagName("td")[n];
+                    // Check if the two rows should switch place, based on the direction, asc or desc:
+                    if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    // If a switch has been marked, make the switch and mark that a switch has been done:
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    switchcount++;
+                } else {
+                    // If no switching has been done AND the direction is "asc", set the direction to "desc" and run the while loop again:
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
 
     </script>
 
