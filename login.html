@@ -15,25 +15,6 @@
     <link href="css/style.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/images/favicon_package/favicon-32x32.png">
     <title>Login - TrifectaFest</title>
-    <script>
-        function userLogin() {
-            var email = document.getElementById("floatingInput").value;
-            var password = document.getElementById("floatingPassword").value;
-            var userData = {};
-            userData.email = email;
-            userData.password = password;
-            var data = JSON.stringify(userData); //dikke vette encoder >>>> onleesbaar
-
-
-            fetch(backendUrl + "/api/login/user", {
-                headers: {
-                    "Content-type": "application/json",
-                },
-                method: "POST",
-                body: data,
-            }).then(qq => qq.text()).then(aa => console.log(aa));
-        }
-    </script>
 </head>
 
 <body>
