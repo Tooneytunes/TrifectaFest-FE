@@ -188,27 +188,27 @@
                     errorRow.appendChild(errorCell);
                     tableBody.appendChild(errorRow);
                 } else {
-                    data.forEach(item => {
+                    data.forEach(ticket => {
                         var row = document.createElement('tr');
 
                         var nameCell = document.createElement('td');
-                        nameCell.textContent = item.festival.name;
+                        nameCell.textContent = ticket.festival.name;
                         row.appendChild(nameCell);
 
                         var beginDateCell = document.createElement('td');
-                        beginDateCell.textContent = item.startDate;
+                        beginDateCell.textContent = new Date(ticket.startDate).toDateString();
                         row.appendChild(beginDateCell);
 
                         var endDateCell = document.createElement('td');
-                        endDateCell.textContent = item.endDate;
+                        endDateCell.textContent = new Date(ticket.endDate).toDateString();
                         row.appendChild(endDateCell);
 
                         var removeTicketCell = document.createElement('td');
                         var btn = document.createElement('input');
-                        btn.className = "btn";
+                        btn.className = "btn btn-warning pback";
                         btn.type = "button";
                         btn.value = "DELETE";
-                        btn.onclick = () => {RemoveTicket(item.id)};
+                        btn.onclick = () => {RemoveTicket(ticket)};
                         removeTicketCell.appendChild(btn);
                         row.appendChild(removeTicketCell);
 
@@ -233,12 +233,15 @@
         <script>
             function RemoveTicket(ticket)
             {
-                fetch(`${backendUrl}/api/ticket/delete/${ticket}`, {
-                    headers: {
-                        "Content-type": "application/json",
-                    },
-                    method: "DELETE",
-                })
+                if(confirm(`You sure you want to remove ${ticket.festival.name}?`))
+                {
+                    fetch(`${backendUrl}/api/ticket/delete/${ticket.id}`, {
+                        headers: {
+                            "Content-type": "application/json",
+                        },
+                        method: "DELETE",
+                    }).then(r => window.location.reload())
+                }
             }
         </script>
 </body>

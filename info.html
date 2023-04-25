@@ -217,35 +217,40 @@
                     errorRow.appendChild(errorCell);
                     tableBody.appendChild(errorRow);
                 } else {
-                    data.forEach(item => {
+                    data.forEach(festival => {
                         var row = document.createElement('tr');
 
                         var nameCell = document.createElement('td');
-                        nameCell.textContent = item.name;
+                        nameCell.textContent = festival.name;
                         row.appendChild(nameCell);
 
                         var locationCell = document.createElement('td');
-                        locationCell.textContent = item.location;
+                        locationCell.textContent = festival.location;
                         row.appendChild(locationCell);
 
                         var beginDateCell = document.createElement('td');
-                        beginDateCell.textContent = item.beginDate;
+                        beginDateCell.textContent = new Date(festival.beginDate).toDateString();
                         row.appendChild(beginDateCell);
 
                         var endDateCell = document.createElement('td');
-                        endDateCell.textContent = item.endDate;
+                        endDateCell.textContent = new Date(festival.endDate).toDateString();
                         row.appendChild(endDateCell);
 
                         if(person.role === "Customer")
                         {
-                            var buyTicketCell = document.createElement('td');
-                            var btn = document.createElement('input');
-                            btn.className = "btn";
-                            btn.type = "button";
-                            btn.value = "BUY";
-                            btn.onclick = () => {BuyTicket(item, person)};
-                            buyTicketCell.appendChild(btn);
-                            row.appendChild(buyTicketCell);
+                            fetch(backendUrl + `/api/ticket/has/${person.id}/${festival.id}`)
+                            .then(respone => respone.text())
+                            .then(hasTicket => {
+                                var buyTicketCell = document.createElement('td');
+                                var btn = document.createElement('input');
+                                btn.className = hasTicket === "false" ? "btn btn-warning pback" : "btn btn-dark";
+                                btn.type = "button";
+                                btn.value = "BUY";
+                                btn.onclick = () => {BuyTicket(festival, person)};
+                                btn.disabled = hasTicket === "true";
+                                buyTicketCell.appendChild(btn);
+                                row.appendChild(buyTicketCell);
+                            })
                         }
                         tableBody.appendChild(row);
                     });
@@ -267,17 +272,35 @@
         <script>
             function BuyTicket(festival, customer)
             {
-                var ticket = {};
-                ticket.startDate = festival.beginDate;
-                ticket.endDate = festival.endDate;
-                var data = JSON.stringify(ticket);
-                
-                fetch(`${backendUrl}/api/ticket/new/${customer.id}/${festival.id}`, {
-                    headers: {
-                        "Content-type": "application/json",
-                    },
-                    method: "POST",
-                    body: data,
+                var hasTicket = false;
+                fetch(backendUrl + '/api/customer/ticket/get/' + customer.id)
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(ticket => {
+                        if(ticket.festival.id === festival.id)
+                        {
+                            console.log("already has a ticket")
+                            alert("you already have a ticket for this festival")
+                            hasTicket = true;
+                        }
+                    })
+                    if (hasTicket === false){
+                        if(confirm(`tou sure you wan't to buy a ticket for ${festival.name}`))
+                        {
+                            var ticket = {};
+                            ticket.startDate = festival.beginDate;
+                            ticket.endDate = festival.endDate;
+                            var data = JSON.stringify(ticket);
+                    
+                            fetch(`${backendUrl}/api/ticket/new/${customer.id}/${festival.id}`, {
+                                headers: {
+                                "Content-type": "application/json",
+                                },
+                                method: "POST",
+                                body: data,
+                            }).then(r => window.location.href = "tickets.html")
+                        }
+                    }
                 })
             }
         </script>
