@@ -17,7 +17,7 @@
     <title>Booking (Make new) - TrifectaFest</title>
 </head>
 
-<body onload="loadData()">
+<body onload="loadData();CheckUser()">
     <header class="p-3 text-bg-dark">
         <div class="container" id="home">
             <div class="d-flex flex-wrap align-items-center justify-content-lg-start">
@@ -34,7 +34,7 @@
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="index.html" class="nav-link px-2 pc"> Home</a></li>
                     <li><a href="lineup.html" class="nav-link px-2 text-secondary">Line-Up</a></li>
-                    <li><a href="festivals.html" class="nav-link px-2 text-secondary">Festivals</a></li>
+                    <li><a href="festival.html" class="nav-link px-2 text-secondary">Festivals</a></li>
                     <li><a href="news.html" class="nav-link px-2 text-secondary">News</a></li>
                     <li><a href="info.html" class="nav-link px-2 text-secondary">Info</a></li>
                 </ul>
@@ -56,12 +56,56 @@
         </div>
     </header>
 
-    <div class="container px-4 py-5" id="" style="color:white">
-        <h1 class="pb-2 border-bottom text-center" id="accountTitle">New booking request</h1>
+    <div class="text-center">
+        <!-- Start of the register form -->
+        <main class="form-signin w-100 m-auto">
+            <form id="newForm" onsubmit="return submitForm(this);">
+                <img class="mb-4" src="images/favicon_package/android-chrome-192x192.png" alt="" width="100"
+                    height="100 " style="margin-top: 20px;border-radius: 150px;">
+                <h1 class="h3 mb-3 fw-bold text-white">New booking request</h1>
+                <div class="form-floating">
+                    <select class="form-select" id="festivalDropDown"
+                        onClick="loadStage()">
+                    </select>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="email" placeholder="Email address">
+                    <label for="floatingInput">Email address</label>
+                </div>
 
-        <div class="row row-cols-1 row-cols-lg-1 p-0 m-0">
-            <div class="col text-center">
-                <div>
+                <br />
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <label for="floatingInput">Password</label>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="repeatPassword" placeholder="Repeat Password">
+                    <label for="floatingPassword">Repeat password</label>
+                </div>
+                <br />
+                <div class="checkbox text-lg-start text-white" id="role">
+                    <label for="floatingInput"><b>Select a role:</b></label><br />
+                    <input type="checkbox" class="checkoption" id="checkbox" value="Customer"
+                        onclick="checkedOnClick(this);">
+                    Costumer <br>
+                    <input type="checkbox" class="checkoption" id="checkbox" value="Artist"
+                        onclick="checkedOnClick(this);">
+                    Artist
+                    <br>
+                    <input type="checkbox" class="checkoption" id="checkbox" value="Organizer"
+                        onclick="checkedOnClick(this);">
+                    Organizer <br>
+                    <br />
+                </div>
+                <!-- Register button -->
+                <button class="w-100 btn btn-lg" type="submit" onclick="createNewPerson()"
+                    style="background-color:#9B59B6;">Make account</button>
+            </form>
+        </main>
+    </div>
+
                     <p>Select which festival</p>
                     <select class="form-select" aria-label="Default select example" id="festivalDropDown"
                         onClick="loadStage()">
@@ -112,7 +156,7 @@
                         <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0 text-secondary">Home</a></li>
                         <li class="nav-item mb-2"><a href="lineup.html" class="nav-link p-0 text-secondary">Lineup</a>
                         </li>
-                        <li class="nav-item mb-2"><a href="festivals.html"
+                        <li class="nav-item mb-2"><a href="festival.html"
                                 class="nav-link p-0 text-secondary">Festivals</a></li>
                         <li class="nav-item mb-2"><a href="news.html" class="nav-link p-0 text-secondary">News</a></li>
                         <li class="nav-item mb-2"><a href="info.html" class="nav-link p-0 text-secondary">Info</a></li>
@@ -125,7 +169,7 @@
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="artists.html" class="nav-link p-0 text-secondary">All
                                 Artists</a></li>
-                        <li class="nav-item mb-2"><a href="allfestivals.html" class="nav-link p-0 text-secondary">All
+                        <li class="nav-item mb-2"><a href="info.html" class="nav-link p-0 text-secondary">All
                                 Festivals</a></li>
                         <li class="nav-item mb-2"><a href="bookings.html" class="nav-link p-0 text-secondary">All
                                 Bookings</a></li>
