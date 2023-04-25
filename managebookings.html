@@ -296,8 +296,7 @@
                         var approveButton = document.createElement("approve");
                         approveButton.type = "button";
                         approveButton.className = "approvebtn";
-                        approveButton.value = "approve";
-
+                        approveButton.title = "approve";
                         approveButton.onclick = (function () {
                             // assume we want to access the first cell in the same row as the second cell in the first row
                             const cell = document.querySelector('#data-table tbody tr:first-child td:nth-child(2)');
@@ -330,7 +329,7 @@
                         var pendingButton = document.createElement("pending");
                         pendingButton.type = "button";
                         pendingButton.className = "pendingbtn";
-                        pendingButton.value = "pending";
+                        pendingButton.title = "pending";
                         pendingButton.onclick = (function () {
                             // assume we want to access the first cell in the same row as the second cell in the first row
                             const cell = document.querySelector('#data-table tbody tr:first-child td:nth-child(2)');
@@ -362,7 +361,7 @@
                         var deniedButton = document.createElement("denied");
                         deniedButton.type = "button";
                         deniedButton.className = "deniedbtn";
-                        deniedButton.value = "denied";
+                        deniedButton.title = "denied";
                         deniedButton.onclick = (function () {
                             // assume we want to access the first cell in the same row as the second cell in the first row
                             const cell = document.querySelector('#data-table tbody tr:first-child td:nth-child(2)');
