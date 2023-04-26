@@ -126,16 +126,17 @@
                     <table id="data-table" style="color:white; ">
                         <thead>
                             <tr>
-                                <th>id</th>
-                                <th>Day</th>
+                                <th><input class="btn pback" type="button" onclick="sortTable(0)" value="ID"></th>
+                                <th><input class="btn pback" type="button" onclick="sortTable(1)" value="Festival name"></th>
+                                <th><input class="btn pback" type="button" onclick="sortTable(2)" value="Stage name"></th>
+                                <th><input class="btn pback" type="button" onclick="sortTable(3)" value="Artist name"></th>
+                                <th><input class="btn pback" type="button" onclick="sortTable(4)" value="Day"></th>
+                                <th><input class="btn pback" type="button" onclick="sortTable(5)" value="Time Slot"></th>
+                                <th>Synopsis</th>
                                 <th>Has VJ</th>
                                 <th>Need VJ</th>
-                                <th>Status</th>
+                                <th><input class="btn pback" type="button" onclick="sortTable(9)" value="Status"></th>
                                 <th>Action</th>
-                                <th>Synopsis</th>
-                                <th>Time Slot</th>
-                                <th>Artist name</th>
-                                <th>Stage name</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -259,13 +260,45 @@
                         var row = document.createElement('tr');
 
                         var idCell = document.createElement('td');
-                        idCell.textContent = item.id;
+                        idCell.textContent = ("0"+item.id).slice(-2);
                         row.appendChild(idCell);
+                        
+                        var festivalCell = document.createElement('td');
+                        try{
+                        fetch(backendUrl + "/api/stage/getfestival/"+item.stage.id)
+                        .then(r => r.json())
+                        .then(festival => 
+                            festivalCell.textContent = festival.name
+                        );}
+                        catch(e){
+                            console.log(e);
+                            festivalCell.textContent = 'nan'
+                        }
+                        row.appendChild(festivalCell);
+
+                        var stageIdCell = document.createElement('td');
+                        stageIdCell.textContent = item.stage.name;
+                        stageIdCell.style.textAlign = "center";
+                        row.appendChild(stageIdCell);
+
+                        var artistIdCell = document.createElement('td');
+                        artistIdCell.textContent = item.artist.name;
+                        artistIdCell.style.textAlign = "center";
+                        row.appendChild(artistIdCell);
 
                         var dayCell = document.createElement('td');
                         dayCell.textContent = item.day;
                         dayCell.style.textAlign = "center";
                         row.appendChild(dayCell);
+                        
+                        var timeslotCell = document.createElement('td');
+                        timeslotCell.textContent = item.timeSlot;
+                        timeslotCell.style.textAlign = "center";
+                        row.appendChild(timeslotCell);
+                        
+                        var synopsisCell = document.createElement('td');
+                        synopsisCell.textContent = item.synopsis;
+                        row.appendChild(synopsisCell);
 
                         var hasVJCell = document.createElement('td');
                         hasVJCell.innerText = item.hasVj;
@@ -396,24 +429,7 @@
                         actionCell.appendChild(deniedButton);
                         row.appendChild(actionCell);
 
-                        var synopsisCell = document.createElement('td');
-                        synopsisCell.textContent = item.synopsis;
-                        row.appendChild(synopsisCell);
-
-                        var timeslotCell = document.createElement('td');
-                        timeslotCell.textContent = item.timeSlot;
-                        timeslotCell.style.textAlign = "center";
-                        row.appendChild(timeslotCell);
-
-                        var artistIdCell = document.createElement('td');
-                        artistIdCell.textContent = item.artist.name;
-                        artistIdCell.style.textAlign = "center";
-                        row.appendChild(artistIdCell);
-
-                        var stageIdCell = document.createElement('td');
-                        stageIdCell.textContent = item.stage.name;
-                        stageIdCell.style.textAlign = "center";
-                        row.appendChild(stageIdCell);
+                        
 
                         tableBody.appendChild(row);
                     });
