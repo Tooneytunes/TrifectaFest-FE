@@ -64,87 +64,50 @@
                     height="100 " style="margin-top: 20px;border-radius: 150px;">
                 <h1 class="h3 mb-3 fw-bold text-white">New booking request</h1>
                 <div class="form-floating">
-                    <select class="form-select" id="festivalDropDown"
-                        onClick="loadStage()">
+                    <select class="form-select" id="festivalDropDown" onClick="loadStage()">
                     </select>
                 </div>
                 <br />
-                <div class="form-floating">
-                    <input type="email" class="form-control" id="email" placeholder="Email address">
-                    <label for="floatingInput">Email address</label>
-                </div>
 
-                <br />
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="password" placeholder="Password">
-                    <label for="floatingInput">Password</label>
-                </div>
-                <br />
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="repeatPassword" placeholder="Repeat Password">
-                    <label for="floatingPassword">Repeat password</label>
-                </div>
-                <br />
-                <div class="checkbox text-lg-start text-white" id="role">
-                    <label for="floatingInput"><b>Select a role:</b></label><br />
-                    <input type="checkbox" class="checkoption" id="checkbox" value="Customer"
-                        onclick="checkedOnClick(this);">
-                    Costumer <br>
-                    <input type="checkbox" class="checkoption" id="checkbox" value="Artist"
-                        onclick="checkedOnClick(this);">
-                    Artist
-                    <br>
-                    <input type="checkbox" class="checkoption" id="checkbox" value="Organizer"
-                        onclick="checkedOnClick(this);">
-                    Organizer <br>
-                    <br />
-                </div>
-                <!-- Register button -->
-                <button class="w-100 btn btn-lg" type="submit" onclick="createNewPerson()"
-                    style="background-color:#9B59B6;">Make account</button>
-            </form>
-        </main>
+                <p>Select which festival</p>
+                <select class="form-select" aria-label="Default select example" id="festivalDropDown"
+                    onClick="loadStage()">
+                    <option value="" selected>Select day</option>
+                </select>
+                <p>Select which stage</p>
+                <select class="form-select" aria-label="Default select example" id="stageDropDown">
+                    <option value="" selected>Select stage</option>
+                </select>
+                <p>input day</p>
+                <select class="form-select" aria-label="Default select example" id="dayDropDown">
+                    <option selected>Select day</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <p>input timeslot</p>
+                <select class="form-select" aria-label="Default select example" id="timeDropDown">
+                    <option selected>Select day</option>
+                    <option value="1">14:00</option>
+                    <option value="2">15:00</option>
+                    <option value="3">16:00</option>
+                    <option value="4">17:00</option>
+                    <option value="5">18:00</option>
+                    <option value="6">19:00</option>
+                    <option value="7">20:00</option>
+                    <option value="8">21:00</option>
+                </select>
+                <p>input synopsis</p>
+                <input type="textArea" class="form-control" id="floatingSynopsis" placeholder="synopsis">
+                <!-- <p>input VJ</p> -->
+                <input type="checkbox" id="needVj" value="needVj"> Need a VJ?
+                <!-- <p>input has VJ</p> -->
+                <input type="checkbox" id="hasVj" value="hasVj"> VJ Provided?
+                <button type="submit" class="w-100 btn btn-lg btn-outline-secondary" onclick="submit()">submit
+                    request</button>
     </div>
-
-                    <p>Select which festival</p>
-                    <select class="form-select" aria-label="Default select example" id="festivalDropDown"
-                        onClick="loadStage()">
-                        <option value="" selected>Select day</option>
-                    </select>
-                    <p>Select which stage</p>
-                    <select class="form-select" aria-label="Default select example" id="stageDropDown">
-                        <option value="" selected>Select stage</option>
-                    </select>
-                    <p>input day</p>
-                    <select class="form-select" aria-label="Default select example" id="dayDropDown">
-                        <option selected>Select day</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                    <p>input timeslot</p>
-                    <select class="form-select" aria-label="Default select example" id="timeDropDown">
-                        <option selected>Select day</option>
-                        <option value="1">14:00</option>
-                        <option value="2">15:00</option>
-                        <option value="3">16:00</option>
-                        <option value="4">17:00</option>
-                        <option value="5">18:00</option>
-                        <option value="6">19:00</option>
-                        <option value="7">20:00</option>
-                        <option value="8">21:00</option>
-                    </select>
-                    <p>input synopsis</p>
-                    <input type="textArea" class="form-control" id="floatingSynopsis" placeholder="synopsis">
-                    <!-- <p>input VJ</p> -->
-                    <input type="checkbox" id="needVj" value="needVj"> Need a VJ?
-                    <!-- <p>input has VJ</p> -->
-                    <input type="checkbox" id="hasVj" value="hasVj"> VJ Provided?
-                    <button type="submit" class="w-100 btn btn-lg btn-outline-secondary" onclick="submit()">submit
-                        request</button>
-                </div>
-            </div>
-        </div>
+    </div>
+    </div>
     </div>
 
     <div class="container">
