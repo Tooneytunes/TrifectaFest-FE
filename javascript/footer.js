@@ -9,7 +9,7 @@ function Footer() {
                     </div>
                     <h5>Menu</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0 pc">Home</a></li>
+                        <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0 text-secondary">Home</a></li>
                         <li class="nav-item mb-2"><a href="lineup.html" class="nav-link p-0 text-secondary">Lineup</a>
                         </li>
                         <li class="nav-item mb-2"><a href="festival.html"
@@ -82,7 +82,7 @@ function Footer() {
                     </div>
                     <h5>Menu</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0 pc">Home</a></li>
+                        <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0 text-secondary">Home</a></li>
                         <li class="nav-item mb-2"><a href="lineup.html" class="nav-link p-0 text-secondary">Lineup</a>
                         </li>
                         <li class="nav-item mb-2"><a href="festival.html"
@@ -159,7 +159,7 @@ function Footer() {
                     </div>
                     <h5>Menu</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0 pc">Home</a></li>
+                        <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0 text-secondary">Home</a></li>
                         <li class="nav-item mb-2"><a href="lineup.html" class="nav-link p-0 text-secondary">Lineup</a>
                         </li>
                         <li class="nav-item mb-2"><a href="festival.html"
