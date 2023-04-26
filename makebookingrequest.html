@@ -68,46 +68,51 @@
                     </select>
                 </div>
                 <br />
-
-                <p>Select which festival</p>
-                <select class="form-select" aria-label="Default select example" id="festivalDropDown"
-                    onClick="loadStage()">
-                    <option value="" selected>Select day</option>
-                </select>
-                <p>Select which stage</p>
-                <select class="form-select" aria-label="Default select example" id="stageDropDown">
-                    <option value="" selected>Select stage</option>
-                </select>
-                <p>input day</p>
-                <select class="form-select" aria-label="Default select example" id="dayDropDown">
-                    <option selected>Select day</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-                <p>input timeslot</p>
-                <select class="form-select" aria-label="Default select example" id="timeDropDown">
-                    <option selected>Select day</option>
-                    <option value="1">14:00</option>
-                    <option value="2">15:00</option>
-                    <option value="3">16:00</option>
-                    <option value="4">17:00</option>
-                    <option value="5">18:00</option>
-                    <option value="6">19:00</option>
-                    <option value="7">20:00</option>
-                    <option value="8">21:00</option>
-                </select>
-                <p>input synopsis</p>
-                <input type="textArea" class="form-control" id="floatingSynopsis" placeholder="synopsis">
-                <!-- <p>input VJ</p> -->
-                <input type="checkbox" id="needVj" value="needVj"> Need a VJ?
-                <!-- <p>input has VJ</p> -->
-                <input type="checkbox" id="hasVj" value="hasVj"> VJ Provided?
-                <button type="submit" class="w-100 btn btn-lg btn-outline-secondary" onclick="submit()">submit
-                    request</button>
-    </div>
-    </div>
-    </div>
+                <div class="form-floating">
+                    <select class="form-select" aria-label="Default select example" id="stageDropDown">
+                        <option value="" selected>Select stage</option>
+                    </select>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <select class="form-select" aria-label="Default select example" id="dayDropDown">
+                        <option selected>Select day</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option> 
+                    </select>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <select class="form-select" aria-label="Default select example" id="timeDropDown">
+                        <option selected>Select timeslot</option>
+                        <option value="1">14:00</option>
+                        <option value="2">15:00</option>
+                        <option value="3">16:00</option>
+                        <option value="4">17:00</option>
+                        <option value="5">18:00</option>
+                        <option value="6">19:00</option>
+                        <option value="7">20:00</option>
+                        <option value="8">21:00</option>
+                    </select>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <label>Synopsis</label>
+                    <input type="textArea" class="form-control" id="floatingSynopsis" placeholder="synopsis">
+                </div>
+                <br />
+                <div class="form-floating" style="color:white">
+                    <input type="checkbox" id="needVj" value="needVj"> Need a VJ?
+                        <!-- <p>input has VJ</p> -->
+                        <input type="checkbox" id="hasVj" value="hasVj"> VJ Provided?
+                    </div>
+                <br/>
+                <!-- Register button -->
+                    <button type="submit" class="w-100 btn btn-lg" onclick="submit()" style="background-color:#9B59B6;color:white">Submit
+                        request</button>
+            </form>
+        </main>
     </div>
 
     <div class="container">
