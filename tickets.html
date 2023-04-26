@@ -95,7 +95,8 @@
                             <th>Festival</th>
                             <th>Begin Date</th>
                             <th>End Date</th>
-                            <th></th>
+                            <th>Download Ticket</th>
+                            <th>Remove</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -154,13 +155,22 @@
                             endDateCell.textContent = new Date(ticket.endDate).toDateString();
                             row.appendChild(endDateCell);
 
+                            var downloadTicketCell = document.createElement('td');
+                            var downloadBtn = document.createElement('input');
+                            downloadBtn.className = "btn btn-warning pback";
+                            downloadBtn.type = "button";
+                            downloadBtn.value = "Download";
+                            downloadBtn.onclick = () => { DownloadTicket(ticket) };
+                            downloadTicketCell.appendChild(downloadBtn);
+                            row.appendChild(downloadTicketCell);
+
                             var removeTicketCell = document.createElement('td');
-                            var btn = document.createElement('input');
-                            btn.className = "btn btn-warning pback";
-                            btn.type = "button";
-                            btn.value = "DELETE";
-                            btn.onclick = () => { RemoveTicket(ticket) };
-                            removeTicketCell.appendChild(btn);
+                            var delBtn = document.createElement('input');
+                            delBtn.className = "btn btn-warning pback";
+                            delBtn.type = "button";
+                            delBtn.value = "Remove";
+                            delBtn.onclick = () => { RemoveTicket(ticket) };
+                            removeTicketCell.appendChild(delBtn);
                             row.appendChild(removeTicketCell);
 
                             tableBody.appendChild(row);
@@ -191,6 +201,19 @@
                     method: "DELETE",
                 }).then(r => window.location.reload())
             }
+        }
+        function DownloadTicket(ticket){
+            ticket.startDate = new Date(ticket.startDate).toDateString();
+            ticketString = JSON.stringify(ticket);
+            fetch("http://127.0.0.1:5000/download", {
+                headers: {
+                    "Content-type": "application/json",
+                },
+                mode:"no-cors",
+                method: "POST",
+                body: ticketString,
+            })
+            //send to python backend
         }
     </script>
 </body>

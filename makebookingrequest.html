@@ -60,7 +60,7 @@
     <div class="text-center">
         <!-- Start of the register form -->
         <main class="form-signin w-100 m-auto">
-            <form id="newForm" onsubmit="return submitForm(this);">
+            <form id="newForm" ></form><!--onsubmit="return submitForm(this);"> -->
                 <img class="mb-4" src="images/favicon_package/android-chrome-192x192.png" alt="" width="100"
                     height="100 " style="margin-top: 20px;border-radius: 150px;">
                 <h1 class="h3 mb-3 fw-bold text-white">New booking request</h1>
@@ -110,7 +110,7 @@
                     </div>
                 <br/>
                 <!-- Register button -->
-                    <button type="submit" class="w-100 btn btn-lg" onclick="submit()" style="background-color:#9B59B6;color:white">Submit
+                    <button type="button" class="w-100 btn btn-lg" onclick="submit()" style="background-color:#9B59B6;color:white">Submit
                         request</button>
             </form>
         </main>
@@ -164,7 +164,9 @@
 
     function submit() {
         var bookingrequest = {};
-        artistId = 1;//local storage
+        person = JSON.parse(localStorage.getItem("Person"));
+        console.log(person);
+        artistId = person.id;//local storage
         stageId = document.getElementById("stageDropDown").value;
         if (stageId) {
             // console.log(stageId);
@@ -182,7 +184,15 @@
                 },
                 method: "POST",
                 body: data,
-            }).then(qq => qq.text()).then(aa => console.log(aa));
+            }).then(qq => qq.text())
+            .then(aa => {
+            if(aa === "true"){
+                alert("Succesfully created a bookingrequest")
+            }
+            else{
+                alert("Failed to created a bookingrequest")
+            }
+            });
 
         }
 
