@@ -115,24 +115,28 @@
                 <div class="col-lg-12 mx-auto">
 
                     <!-- Create buttons to sort tables based on column index -->
-                    <div style="text-align:center;margin-bottom: 20px;">
-                        <button class="btn btn-warning pback" onclick="sortTable(4)">Sort by Status</button>
-                        <button class="btn btn-warning pback" onclick="sortTable(7)">Sort by Time Slot</button>
-                        <button class="btn btn-warning pback" onclick="sortTable(8)">Sort by Artist name</button>
-                        <button class="btn btn-warning pback" onclick="sortTable(9)">Sort by Stage name</button>
+                    <!-- <div style="text-align:center">
+                        <button class="btn btn-warning pback" onclick="sortTable(9)">Sort by Status</button>
+                        <button class="btn btn-warning pback" onclick="sortTable(5)">Sort by Time Slot</button>
+                        <button class="btn btn-warning pback" onclick="sortTable(3)">Sort by Artist name</button>
+                        <button class="btn btn-warning pback" onclick="sortTable(2)">Sort by Stage name</button>
                     </div>
-                    <br>
+                    <br> -->
 
                     <!-- Start of the table head -->
                     <table id="data-table" style="color:white; ">
                         <thead>
                             <tr>
                                 <th><input class="btn pback" type="button" onclick="sortTable(0)" value="ID"></th>
-                                <th><input class="btn pback" type="button" onclick="sortTable(1)" value="Festival name"></th>
-                                <th><input class="btn pback" type="button" onclick="sortTable(2)" value="Stage name"></th>
-                                <th><input class="btn pback" type="button" onclick="sortTable(3)" value="Artist name"></th>
+                                <th><input class="btn pback" type="button" onclick="sortTable(1)" value="Festival name">
+                                </th>
+                                <th><input class="btn pback" type="button" onclick="sortTable(2)" value="Stage name">
+                                </th>
+                                <th><input class="btn pback" type="button" onclick="sortTable(3)" value="Artist name">
+                                </th>
                                 <th><input class="btn pback" type="button" onclick="sortTable(4)" value="Day"></th>
-                                <th><input class="btn pback" type="button" onclick="sortTable(5)" value="Time Slot"></th>
+                                <th><input class="btn pback" type="button" onclick="sortTable(5)" value="Time Slot">
+                                </th>
                                 <th>Synopsis</th>
                                 <th>Has VJ</th>
                                 <th>Need VJ</th>
@@ -165,9 +169,9 @@
 
     <script>
 
-        function setStatusApproved() {
-            console.log("ok");
-        }
+        // function setStatusApproved() {
+        //     console.log("ok");
+        // }
 
         // Function to fill the table based on JSON info
         var personObject = localStorage.getItem("Person");
@@ -190,17 +194,18 @@
                         var row = document.createElement('tr');
 
                         var idCell = document.createElement('td');
-                        idCell.textContent = ("0"+item.id).slice(-2);
+                        idCell.textContent = ("0" + item.id).slice(-2);
                         row.appendChild(idCell);
-                        
+
                         var festivalCell = document.createElement('td');
-                        try{
-                        fetch(backendUrl + "/api/stage/getfestival/"+item.stage.id)
-                        .then(r => r.json())
-                        .then(festival => 
-                            festivalCell.textContent = festival.name
-                        );}
-                        catch(e){
+                        try {
+                            fetch(backendUrl + "/api/stage/getfestival/" + item.stage.id)
+                                .then(r => r.json())
+                                .then(festival =>
+                                    festivalCell.textContent = festival.name
+                                );
+                        }
+                        catch (e) {
                             console.log(e);
                             festivalCell.textContent = 'nan'
                         }
@@ -220,12 +225,12 @@
                         dayCell.textContent = item.day;
                         dayCell.style.textAlign = "center";
                         row.appendChild(dayCell);
-                        
+
                         var timeslotCell = document.createElement('td');
                         timeslotCell.textContent = item.timeSlot;
                         timeslotCell.style.textAlign = "center";
                         row.appendChild(timeslotCell);
-                        
+
                         var synopsisCell = document.createElement('td');
                         synopsisCell.textContent = item.synopsis;
                         row.appendChild(synopsisCell);
@@ -359,7 +364,7 @@
                         actionCell.appendChild(deniedButton);
                         row.appendChild(actionCell);
 
-                        
+
 
                         tableBody.appendChild(row);
                     });
